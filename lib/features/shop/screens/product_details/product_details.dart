@@ -27,11 +27,11 @@ class ProductDetals extends StatelessWidget {
               child: Column(
                 children: [
                   //! -----------------------Rating And Share-----------------------
-                  TRatingAndShare(),
+                  const TRatingAndShare(),
 
                   //! -----------------------Price,Title,stock and brand -----------------------
 
-                  TProductMetaData(),
+                  const TProductMetaData(),
 
                   //! -----------------------Attributes-----------------------
                   //! -----------------------Checkout Button-----------------------

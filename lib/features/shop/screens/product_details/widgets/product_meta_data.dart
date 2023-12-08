@@ -27,11 +27,50 @@ class TProductMetaData extends StatelessWidget {
               ),
             ),
             //price
+            const SizedBox(width: TSizes.spaceBwItems),
+            Text(
+              '\$250',
+              style: Theme.of(context)
+                  .textTheme
+                  .titleSmall!
+                  .apply(decoration: TextDecoration.lineThrough),
+            ),
+            const SizedBox(width: TSizes.spaceBwItems),
+            const TProductPriceText(
+              price: '125',
+              isLarge: true,
+            ),
           ],
         ),
+
         // title
+        const SizedBox(height: TSizes.spaceBwItems / 1.5),
+        const TProductTitleText(title: 'Green NIKE sports shirt'),
+        const SizedBox(height: TSizes.spaceBwItems / 1.5),
+
         // stock status
+        Row(
+          children: [
+            const TProductTitleText(title: 'Status'),
+            const SizedBox(width: TSizes.spaceBwItems),
+            Text('[In Stock]', style: Theme.of(context).textTheme.titleMedium),
+          ],
+        ),
+
         // brand
+        const SizedBox(height: TSizes.spaceBwItems / 1.5),
+        Row(
+          children: [
+            TCircularImage(
+                dark: dark,
+                image: TImages.cosmeticIcon,
+                width: 32,
+                height: 32,
+                overlayColor: dark ? TColors.white : TColors.black),
+            const TBrandTitleWithVerifiedIcon(
+                title: 'JIYA NOOR', brandTextSizes: TextSizes.medium),
+          ],
+        ),
       ],
     );
   }
