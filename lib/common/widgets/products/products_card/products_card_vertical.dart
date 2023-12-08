@@ -1,3 +1,4 @@
+import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/product_details.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class TProductsCardVertical extends StatelessWidget {
@@ -9,7 +10,7 @@ class TProductsCardVertical extends StatelessWidget {
 
     // container with padding and color edges radius etc,
     return GestureDetector(
-      onTap: () {},
+      onTap: () => Get.to(() => const ProductDetals()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),

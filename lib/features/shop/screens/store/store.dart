@@ -1,4 +1,4 @@
-import 'package:coding_with_t_ecommerce2/features/shop/screens/widgets/category_tab.dart';
+import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/category_tab.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class StoreScreen extends StatelessWidget {

@@ -15,8 +15,8 @@ export 'package:coding_with_t_ecommerce2/common/widgets/image_text_widgets/verti
 export 'package:coding_with_t_ecommerce2/common/widgets/custom_shapes/primary_header_container.dart';
 export 'package:coding_with_t_ecommerce2/common/widgets/products/products_card/products_card_vertical.dart';
 export 'package:coding_with_t_ecommerce2/features/shop/screens/home/home_categories.dart';
-export 'package:coding_with_t_ecommerce2/features/shop/screens/widgets/home_appbar.dart';
-export 'package:coding_with_t_ecommerce2/features/shop/screens/widgets/promo_slider.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/home_appbar.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/promo_slider.dart';
 export 'package:coding_with_t_ecommerce2/features/authentications/screens/forget_password_configuration/reset_password.dart';
 export 'package:get/get.dart';
 export 'package:iconsax/iconsax.dart';

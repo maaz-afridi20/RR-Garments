@@ -1,3 +1,5 @@
+import 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/profile.dart';
+
 import '../../../../utils/constants/imported_statement.dart';
 
 class TUserProfileTile extends StatelessWidget {
@@ -31,7 +33,9 @@ class TUserProfileTile extends StatelessWidget {
             Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white),
       ),
       trailing: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.to(() => const ProfileScreen());
+          },
           icon: const Icon(
             Iconsax.edit,
             color: TColors.white,
