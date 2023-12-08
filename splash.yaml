@@ -1,0 +1,19 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  color_dark: "#272727"
+  image: assets/logos/blackapplogo.png
+  image_Dark: assets/logos/redapplogo.png
+
+  android_12:
+    color: "#FFFFFF"
+    color_dark: "#272727"
+    image: assets/logos/blackapplogo.png
+    image_Dark: assets/logos/redapplogo.png
+  
+  web: false
+
+
+
+  # we can remove the native splash screen by writing this
+  #
+  # flutter pub run flutter_native_screen:remove 
