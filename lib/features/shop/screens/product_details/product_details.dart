@@ -1,7 +1,10 @@
+import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
+import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_attributes.dart';
 import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
 import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_meta_data.dart';
 import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
+import 'package:readmore/readmore.dart';
 
 class ProductDetals extends StatelessWidget {
   const ProductDetals({super.key});
@@ -19,7 +22,7 @@ class ProductDetals extends StatelessWidget {
 
             //! -----------------------product details-----------------------
 
-            const Padding(
+            Padding(
               padding: const EdgeInsets.only(
                   right: TSizes.defaultSpace,
                   bottom: TSizes.defaultSpace,
@@ -34,15 +37,54 @@ class ProductDetals extends StatelessWidget {
                   const TProductMetaData(),
 
                   //! -----------------------Attributes-----------------------
+
+                  const TProductAttributes(),
+                  const SizedBox(height: TSizes.spaceBwSections),
                   //! -----------------------Checkout Button-----------------------
+
+                  SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                          onPressed: () {}, child: const Text('Checkout'))),
+
                   //! -----------------------Description-----------------------
+                  const SizedBox(height: TSizes.spaceBwSections),
+                  const TSectionHeading(
+                      title: 'Description', showActionButton: false),
+                  const SizedBox(height: TSizes.spaceBwSections),
+                  //! -----------------------shor more or less-----------------------
+
+                  const ReadMoreText(
+                    'this is some random text that will be read in the next section this is some random text that will be read in the next sectionof the text file and will be read in the next section of the text file',
+                    trimLines: 2,
+                    trimMode: TrimMode.Line,
+                    trimCollapsedText: ' show more',
+                    trimExpandedText: ' show less',
+                    moreStyle:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle:
+                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                  ),
+                  const Divider(),
                   //! -----------------------Reviews-----------------------
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const TSectionHeading(
+                          title: 'Reviews(101)', showActionButton: false),
+                      GestureDetector(
+                          onTap: () {},
+                          child: const Icon(Iconsax.arrow_right_3, size: 18)),
+                    ],
+                  ),
+                  const SizedBox(height: TSizes.spaceBwSections),
                 ],
               ),
             ),
           ],
         ),
       ),
+      bottomNavigationBar: const TBottomAddToCard(),
     );
   }
 }

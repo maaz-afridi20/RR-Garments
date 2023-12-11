@@ -1,7 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/personalization/screens/settings/settings.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/home/home.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/store/store.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/wishlists/wishlist.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class NavigationMenu extends StatelessWidget {

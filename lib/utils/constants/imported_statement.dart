@@ -61,3 +61,10 @@ export 'package:coding_with_t_ecommerce2/common/widgets/success_screen/success_s
 export 'package:coding_with_t_ecommerce2/features/authentications/screens/login/login.dart';
 export 'package:smooth_page_indicator/smooth_page_indicator.dart';
 export 'package:coding_with_t_ecommerce2/common/widgets/products/products_card/product_price_text.dart';
+
+export 'package:coding_with_t_ecommerce2/features/personalization/screens/settings/settings.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/home/home.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/store/store.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/wishlists/wishlist.dart';
+export 'package:coding_with_t_ecommerce2/features/authentications/screens/onboarding/onboarding.dart';
+export 'package:coding_with_t_ecommerce2/utils/theme/theme.dart';
