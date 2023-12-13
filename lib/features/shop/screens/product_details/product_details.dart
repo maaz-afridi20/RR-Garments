@@ -1,10 +1,4 @@
-import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_attributes.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_meta_data.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/rating_share_widget.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
-import 'package:readmore/readmore.dart';
 
 class ProductDetals extends StatelessWidget {
   const ProductDetals({super.key});
@@ -67,13 +61,15 @@ class ProductDetals extends StatelessWidget {
                   ),
                   const Divider(),
                   //! -----------------------Reviews-----------------------
+                  const SizedBox(height: TSizes.spaceBwItems),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const TSectionHeading(
                           title: 'Reviews(101)', showActionButton: false),
                       GestureDetector(
-                          onTap: () {},
+                          onTap: () =>
+                              Get.to(() => const ProductReviewsScreen()),
                           child: const Icon(Iconsax.arrow_right_3, size: 18)),
                     ],
                   ),

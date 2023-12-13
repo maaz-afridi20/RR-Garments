@@ -68,3 +68,15 @@ export 'package:coding_with_t_ecommerce2/features/shop/screens/store/store.dart'
 export 'package:coding_with_t_ecommerce2/features/shop/screens/wishlists/wishlist.dart';
 export 'package:coding_with_t_ecommerce2/features/authentications/screens/onboarding/onboarding.dart';
 export 'package:coding_with_t_ecommerce2/utils/theme/theme.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/products/ratings/rating_indicator.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_reviews/widgets/rating_progress_indicator.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_reviews/widgets/user_review_card.dart';
+export 'package:readmore/readmore.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/bottom_add_to_cart_widget.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_attributes.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_detail_image_slider.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/product_meta_data.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/rating_share_widget.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_reviews/product_reviews.dart';
+export 'package:coding_with_t_ecommerce2/features/personalization/screens/addresses/add_new_address.dart';
+export 'package:coding_with_t_ecommerce2/features/personalization/screens/addresses/widgets/single_address.dart';

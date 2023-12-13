@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/shop/screens/home/home.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class FavouriteScreen extends StatelessWidget {

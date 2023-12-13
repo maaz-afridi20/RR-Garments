@@ -1,5 +1,6 @@
 import 'package:coding_with_t_ecommerce2/common/widgets/layouts/listiles/setting_menu_tile.dart';
 import 'package:coding_with_t_ecommerce2/common/widgets/layouts/listiles/user_profiletile.dart';
+import 'package:coding_with_t_ecommerce2/features/personalization/screens/addresses/address.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -44,6 +45,11 @@ class SettingsScreen extends StatelessWidget {
                       title: 'Account Settings', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBwItems),
                   TSettingMenuTile(
+                      icon: Iconsax.safe_home,
+                      subtitle: 'Set Shopping Delivery Address',
+                      title: 'My Address',
+                      ontap: () => Get.to(() => const UserAddressScreen())),
+                  TSettingMenuTile(
                       icon: Iconsax.shopping_cart,
                       subtitle: 'Add remove products and move to checkout',
                       title: 'My Cart',
@@ -52,11 +58,6 @@ class SettingsScreen extends StatelessWidget {
                       icon: Iconsax.bag_tick,
                       subtitle: 'In progress and completed orders',
                       title: 'My Orders',
-                      ontap: () {}),
-                  TSettingMenuTile(
-                      icon: Iconsax.safe_home,
-                      subtitle: 'Set Shopping Delivery Address',
-                      title: 'My Address',
                       ontap: () {}),
                   TSettingMenuTile(
                       icon: Iconsax.bank,
