@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class ProfileScreen extends StatelessWidget {

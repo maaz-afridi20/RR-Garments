@@ -1,6 +1,3 @@
-import 'package:coding_with_t_ecommerce2/common/widgets/layouts/listiles/setting_menu_tile.dart';
-import 'package:coding_with_t_ecommerce2/common/widgets/layouts/listiles/user_profiletile.dart';
-import 'package:coding_with_t_ecommerce2/features/personalization/screens/addresses/address.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class SettingsScreen extends StatelessWidget {

@@ -1,5 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/authentications/screens/forget_password_configuration/forget_password.dart';
-
 import '../../../../../utils/constants/imported_statement.dart';
 
 class RememberAndForgot extends StatelessWidget {
