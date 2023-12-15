@@ -1,3 +1,4 @@
+import 'package:coding_with_t_ecommerce2/features/shop/screens/cart/cart.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class TCartCounterIcon extends StatelessWidget {
@@ -15,7 +16,7 @@ class TCartCounterIcon extends StatelessWidget {
     return Stack(
       children: [
         IconButton(
-          onPressed: onPress,
+          onPressed: () => Get.to(() => const CartScreen()),
           icon: Icon(
             Iconsax.shopping_bag,
             color: THelperFunction.isDarkMode(context)
