@@ -85,3 +85,13 @@ export 'package:coding_with_t_ecommerce2/common/widgets/layouts/listiles/setting
 export 'package:coding_with_t_ecommerce2/common/widgets/layouts/listiles/user_profiletile.dart';
 export 'package:coding_with_t_ecommerce2/features/personalization/screens/addresses/address.dart';
 export 'package:coding_with_t_ecommerce2/features/authentications/screens/forget_password_configuration/forget_password.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/products/cart/cart_item.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/products/cart/add_remove_product_cart_buttons.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/cart/cart.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/products/cart/coupon_widget.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/cart/widgets/cart_items.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/checkout/checkout.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/checkout/widgets/billing_address_section.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/checkout/widgets/billing_payment_section.dart';
+
+export 'package:coding_with_t_ecommerce2/features/shop/screens/order/widgets/order_list.dart';

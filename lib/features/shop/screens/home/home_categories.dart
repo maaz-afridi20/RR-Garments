@@ -1,3 +1,4 @@
+import 'package:coding_with_t_ecommerce2/features/shop/screens/subcategories/sub_categories.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class THomeCategories extends StatelessWidget {
@@ -16,8 +17,8 @@ class THomeCategories extends StatelessWidget {
         itemBuilder: (context, index) {
           return TVerticalImageText(
             image: TImages.shoeIcon,
-            title: 'Shoe Wonderful',
-            onTap: () {},
+            title: 'Shoes',
+            onTap: () => Get.to(() => const SubCategoriesScreen()),
           );
         },
       ),

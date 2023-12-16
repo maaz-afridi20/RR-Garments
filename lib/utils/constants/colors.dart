@@ -17,7 +17,7 @@ class TColors {
   static const Color backgroundPrimaryColor = Color(0xfff3f5ff);
 
 // background container colors
-  static const Color backgroundContainerLightColor = Color(0xfff6f6f6);
+  static const Color light = Color(0xfff6f6f6);
   Color backgroundContainerDarkColor =
       TColors.backgroundLightColor.withOpacity(0.1);
 

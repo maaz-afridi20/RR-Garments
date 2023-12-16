@@ -1,3 +1,4 @@
+import 'package:coding_with_t_ecommerce2/features/shop/screens/order/order.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -55,7 +56,7 @@ class SettingsScreen extends StatelessWidget {
                       icon: Iconsax.bag_tick,
                       subtitle: 'In progress and completed orders',
                       title: 'My Orders',
-                      ontap: () {}),
+                      ontap: () => Get.to(() => const OrderScreen())),
                   TSettingMenuTile(
                       icon: Iconsax.bank,
                       subtitle: 'Withdraw balance to register bank account',

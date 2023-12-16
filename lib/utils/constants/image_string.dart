@@ -35,6 +35,22 @@ class TImages {
   static const String verifyIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
 
+// ----------------------------Payment method images------------------------------------
+
+  // static const String paypal = "assets/icons/paymentmethods/paypal.png";
+  static const String paypal = "assets/icons/paymentmethods/paypal.png";
+  static const String applepay = "assets/icons/paymentmethods/apple-pay.png";
+  static const String creditcard =
+      "assets/icons/paymentmethods/credit-card.png";
+  static const String googlepay = "assets/icons/paymentmethods/google-pay.png";
+  static const String mastercard =
+      "assets/icons/paymentmethods/master-card.png";
+  static const String paystack = "assets/icons/paymentmethods/paystack.png";
+  static const String paytm = "assets/icons/paymentmethods/paytm.png";
+  static const String successfulpayment =
+      "assets/icons/paymentmethods/successful_payment_icon.png";
+  static const String visa = "assets/icons/paymentmethods/visa.png";
+
 // ----------------------------Category Icons------------------------------------
 
   static const String sportIcon =

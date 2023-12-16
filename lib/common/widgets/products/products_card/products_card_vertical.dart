@@ -100,6 +100,7 @@ class TProductsCardVertical extends StatelessWidget {
                   padding: EdgeInsets.only(left: TSizes.sm),
                   child: TProductPriceText(price: '35.0'),
                 ),
+                //! Add to cart
                 Container(
                   decoration: const BoxDecoration(
                     color: TColors.backgroundDarkColor,
