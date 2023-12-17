@@ -10,7 +10,17 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: TAppTheme.myLightTheme,
       darkTheme: TAppTheme.myDarkTheme,
-      home: const OnboardingScreen(),
+
+      // this will show the progress indicator and will check that which
+      // screen should to show.
+      home: const Scaffold(
+        backgroundColor: TColors.basicPprimaryColor,
+        body: Center(
+          child: CircularProgressIndicator(
+            color: Colors.white,
+          ),
+        ),
+      ),
     );
   }
 }

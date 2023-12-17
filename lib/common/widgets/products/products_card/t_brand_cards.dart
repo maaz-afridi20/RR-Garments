@@ -3,17 +3,16 @@ import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart
 class TBrandCard extends StatelessWidget {
   const TBrandCard({
     super.key,
-    required this.dark,
     this.showBorder = false,
     this.onTapp,
   });
 
-  final bool dark;
   final bool showBorder;
   final void Function()? onTapp;
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunction.isDarkMode(context);
     return GestureDetector(
       onTap: onTapp,
       child: TRoundedContainer(

@@ -1,6 +1,4 @@
-import 'package:coding_with_t_ecommerce2/features/authentications/screens/login/login.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class OnBoardingController extends GetxController {
   static OnBoardingController get instance => Get.find();
@@ -21,6 +19,9 @@ class OnBoardingController extends GetxController {
 
   void nextPage() {
     if (myCurrentPageIndex.value == 2) {
+      final storage = GetStorage();
+
+      storage.write('isFirstTime', false);
       Get.offAll(const LoginScreen());
     } else {
       int page = myCurrentPageIndex.value + 1;

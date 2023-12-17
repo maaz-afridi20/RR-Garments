@@ -1,3 +1,4 @@
+import 'package:coding_with_t_ecommerce2/features/shop/screens/brands/all_brands_screen.dart';
 import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/category_tab.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
@@ -6,8 +7,6 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool dark = THelperFunction.isDarkMode(context);
-
     // ! the default tab controller is for the Tabbar view
     // ! otherwise it will not work
     return DefaultTabController(
@@ -51,7 +50,7 @@ class StoreScreen extends StatelessWidget {
                       // -----------------------------Feature Brands-----------------------------------
                       TSectionHeading(
                         title: 'Feature Brands',
-                        onPressed: () {},
+                        onPressed: () => Get.to(() => const AllBrandScreen()),
                       ),
                       const SizedBox(height: TSizes.spaceBwItems / 1.5),
 
@@ -61,7 +60,7 @@ class StoreScreen extends StatelessWidget {
                         itemCount: 4,
                         mainAxisExtent: 80,
                         itemBuilder: (_, index) {
-                          return TBrandCard(dark: dark, showBorder: false);
+                          return const TBrandCard(showBorder: false);
                         },
                       )
                     ],

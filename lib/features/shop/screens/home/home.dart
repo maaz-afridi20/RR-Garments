@@ -67,7 +67,7 @@ class Home extends StatelessWidget {
 
                   TSectionHeading(
                     title: 'Popular Products',
-                    onPressed: () {},
+                    onPressed: () => Get.to(() => const AllProducts()),
                   ),
                   const SizedBox(height: TSizes.spaceBwItems),
 
