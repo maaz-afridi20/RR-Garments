@@ -27,14 +27,7 @@ class SignUp extends StatelessWidget {
               const TTermsAndConditions(),
               // --------------------------SignUp Button--------------------------------------
               const SizedBox(height: TSizes.spaceBwSections),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Get.to(() => const VerifyEmail()),
-                  child: const Text(TTextStrings.createAccount),
-                ),
-              ),
-              const SizedBox(height: TSizes.spaceBwSections),
+
               // --------------------------Divider--------------------------------------
               TFormDivider(dividerText: TTextStrings.orSignUpWith.capitalized),
               // --------------------------Footer => contains Social Buttons--------------------------------------

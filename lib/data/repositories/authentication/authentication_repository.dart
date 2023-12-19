@@ -5,6 +5,7 @@ class AuthenticationRepository extends GetxController {
 
   // variables
   final deviceStorage = GetStorage();
+  final _auth = FirebaseAuth.instance;
 
   // called from main.dart class when app launched
 
@@ -12,6 +13,10 @@ class AuthenticationRepository extends GetxController {
   void onReady() {
     FlutterNativeSplash.remove();
     screenRedirect();
+  }
+// Function to show that screen what we want to display
+
+  screenRedirect() async {
     // fetching local device storage variable
     deviceStorage.writeIfNull('isFirstTime',
         true); // this function will only be called only when the first time user is  null mean that there is no user first time
@@ -26,7 +31,26 @@ class AuthenticationRepository extends GetxController {
         : Get.offAll(() => const OnboardingScreen());
   }
 
-// Function to show that screen what we want to display
+  // -----------------------------EMAIL AND PASSWORD SIGN IN-----------------------------------
 
-  screenRedirect() async {}
+  // [EMAIL AUTHENTICATION]    sign in
+
+  //  REGISTER..
+  Future<UserCredential> registerWitheEmailAndPassword(
+      String email, String password) async {
+    try {
+      return await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      throw TFirebaseAuthException(e.code).message;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong';
+    }
+  }
 }

@@ -35,6 +35,10 @@ class TImages {
   static const String verifyIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
 
+// --Lotties-
+
+  static const String runningLottie = "assets/images/lotties/running.gif";
+
 // ----------------------------Payment method images------------------------------------
 
   // static const String paypal = "assets/icons/paymentmethods/paypal.png";
