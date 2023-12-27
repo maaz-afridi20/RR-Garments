@@ -1,5 +1,3 @@
-import 'package:coding_with_t_ecommerce2/data/models/user_model.dart';
-import 'package:coding_with_t_ecommerce2/data/repositories/user/user_repository.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class SignUpControler extends GetxController {
@@ -24,7 +22,7 @@ class SignUpControler extends GetxController {
       //! start loading
 
       TFullScreenLoader.openLoadingDialog(
-          'We are processing your info....', TImages.clothIcon);
+          'We are processing your info....', TImages.json3);
 
       // //! check internet connection
 
@@ -84,7 +82,7 @@ class SignUpControler extends GetxController {
       TFullScreenLoader.stopLoading();
 
       // show some generic error
-      print('catch');
+
       TLoaders.errorSnackbar(
         title: 'On Snap!',
         message: e.toString(),

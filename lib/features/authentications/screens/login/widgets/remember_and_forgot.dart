@@ -7,6 +7,7 @@ class RememberAndForgot extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -14,10 +15,12 @@ class RememberAndForgot extends StatelessWidget {
 
         Row(
           children: [
-            Checkbox(
-              value: true,
-              onChanged: (value) {},
-            ),
+            Obx(() => Checkbox(
+                  value: controller.rememberMe.value,
+                  onChanged: (value) =>
+                      controller.rememberMe.value !=
+                      controller.rememberMe.value,
+                )),
             const Text(TTextStrings.rememberMe),
           ],
         ),

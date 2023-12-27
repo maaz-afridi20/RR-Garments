@@ -24,7 +24,6 @@ class NetworkManager extends GetxController {
   // and show the revelant animation
 
   Future<void> _updateConnectionStatus() async {
-    var result = _connectionStatus.value;
     if (_connectionStatus.value == ConnectivityResult.none) {
       TLoaders.warningSnackbar(title: 'No Internet Connection');
     }

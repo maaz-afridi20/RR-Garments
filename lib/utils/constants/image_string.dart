@@ -38,6 +38,11 @@ class TImages {
 // --Lotties-
 
   static const String runningLottie = "assets/images/lotties/running.gif";
+  static const String json1 = "assets/images/lotties/1.json";
+  static const String json2 = "assets/images/lotties/2.json";
+  static const String json3 = "assets/images/lotties/3.json";
+  static const String json4 = "assets/images/lotties/4.json";
+  static const String json5 = "assets/images/lotties/5.json";
 
 // ----------------------------Payment method images------------------------------------
 

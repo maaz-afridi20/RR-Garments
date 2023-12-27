@@ -29,56 +29,59 @@ class UserModel {
 
   String get formatedPhoneNumber => TFormatters.formatPhoneNumber(phoneNumber);
 
-
   // function to split full name to firstname and lastname
-  static List<String> nameParts = nameParts(fullName)=> fullName.split(" ");
-
+  List<String> nameParts(fullName) => fullName.split(" ");
 
   // function to generate a user name from full name
 
-  static String generateUserName(fullName){
+  static String generateUserName(fullName) {
     List<String> nameParts = fullName.split(" ");
-    String firstName =nameParts[0].toLowerCase();
-    String lastName =nameParts.length> 1 ? nameParts[1].toLowerCase():"";
+    String firstName = nameParts[0].toLowerCase();
+    String lastName = nameParts.length > 1 ? nameParts[1].toLowerCase() : "";
 
-
-    String camelCaseUserName="$firstName$lastName"; // combile first name with last name
-    String userNameWithPrefix="cwt_$camelCaseUserName"; // Add cwt prefix to
+    String camelCaseUserName =
+        "$firstName$lastName"; // combile first name with last name
+    String userNameWithPrefix = "cwt_$camelCaseUserName"; // Add cwt prefix to
 
     return userNameWithPrefix;
   }
 
-  static UserModel  empty()=> UserModel(email: '',userName: '',
-   password:"",firstName: "",id: "",lastName: "",phoneNumber: "",profilePicture: "");
+  static UserModel empty() => UserModel(
+      email: '',
+      userName: '',
+      password: "",
+      firstName: "",
+      id: "",
+      lastName: "",
+      phoneNumber: "",
+      profilePicture: "");
 
-
-
-  Map<String, dynamic> toJson(){
+  Map<String, dynamic> toJson() {
     return {
-      'FirstName':firstName,
-      'LastName':lastName,
-      'UserName':id,
-      'Email':email,
-      'PhoneNumber':phoneNumber,
-      'ProfilePicture':profilePicture,
+      'FirstName': firstName,
+      'LastName': lastName,
+      'UserName': id,
+      'Email': email,
+      'PhoneNumber': phoneNumber,
+      'ProfilePicture': profilePicture,
     };
   }
 
-
-  factory UserModel.fromSnapshot(DocumentSnapshot<Map<String , dynamic>> document){
+  factory UserModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
-final data = document.data();
-return UserModel(email: data['Email']??'', firstName: data['FirstName']??'', id: document.id, lastName: data['LastName']??'', phoneNumber: data['PhoneNumber']??'', profilePicture: data['PhoneNumber']??'')  ;
+      final data = document.data();
+      return UserModel(
+          email: data!['Email'] ?? '',
+          firstName: data['FirstName'] ?? '',
+          id: document.id,
+          lastName: data['LastName'] ?? '',
+          phoneNumber: data['PhoneNumber'] ?? '',
+          profilePicture: data['PhoneNumber'] ?? '',
+          userName: data['userName'] ?? '',
+          password: data['password'] ?? '');
     }
+
+    throw Exception('some error occurred');
   }
-
-
-
-
-
-
-
-
-
-
 }

@@ -9,75 +9,21 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppbarHeight,
-          child: Column(
+          child: const Column(
             children: [
               // logo, title, subtitle
-              const TLoginHeader(),
+              TLoginHeader(),
               // ------------------------- Form ---------------------------------------
 
-              Form(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: TSizes.spaceBwSections),
-                  child: Column(
-                    children: [
-                      //
-                      // Email
-                      TextFormField(
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(Iconsax.direct_right),
-                          labelText: TTextStrings.email,
-                        ),
-                      ),
-                      const SizedBox(height: TSizes.spaceBwInputFields),
-                      //
-                      // Password
-                      TextFormField(
-                        decoration: const InputDecoration(
-                            prefixIcon: Icon(Iconsax.password_check),
-                            labelText: TTextStrings.password,
-                            suffixIcon: Icon(Iconsax.eye_slash)),
-                      ),
-                      const SizedBox(height: TSizes.spaceBwInputFields / 2),
+              TLoginForm(),
 
-                      // ------------------------------Remember me and forgot----------------------------------
+              // ---------------------------divider----------------------------
 
-                      const RememberAndForgot(),
-                      //
-                      const SizedBox(height: TSizes.spaceBwSections),
-                      //
-                      // ---------------------------sign in and create account button-------------------------------------
+              TFormDivider(dividerText: TTextStrings.orSignInWith),
 
-                      SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                            onPressed: () =>
-                                Get.to(() => const NavigationMenu()),
-                            child: const Text(TTextStrings.signIn),
-                          )),
-                      const SizedBox(height: TSizes.spaceBwItems),
-                      //
-                      //
-                      SizedBox(
-                        width: double.infinity,
-                        child: OutlinedButton(
-                          onPressed: () => Get.to(() => const SignUp()),
-                          child: const Text(TTextStrings.createAccount),
-                        ),
-                      ),
-                      const SizedBox(height: TSizes.spaceBwItems),
-                      // ---------------------------divider----------------------------
-
-                      const TFormDivider(
-                          dividerText: TTextStrings.orSignInWith),
-
-                      const SizedBox(height: TSizes.spaceBwSections),
-                      // ---------------------------footer----------------------------
-                      const TFooter(),
-                    ],
-                  ),
-                ),
-              ),
+              SizedBox(height: TSizes.spaceBwSections),
+              // ---------------------------footer----------------------------
+              TFooter(),
             ],
           ),
         ),

@@ -112,3 +112,11 @@ export 'package:coding_with_t_ecommerce2/common/widgets/checking_internet_connec
 export 'package:firebase_auth/firebase_auth.dart';
 export 'package:cloud_firestore/cloud_firestore.dart';
 export 'package:coding_with_t_ecommerce2/data/models/user_model.dart';
+export 'package:coding_with_t_ecommerce2/data/repositories/user/user_repository.dart';
+export 'package:coding_with_t_ecommerce2/utils/exceptions/fireabse_exception.dart';
+export 'package:coding_with_t_ecommerce2/utils/exceptions/firebase_auth_exceptions.dart';
+export 'package:coding_with_t_ecommerce2/utils/exceptions/format_exception.dart';
+export 'package:coding_with_t_ecommerce2/utils/exceptions/platform_exception.dart';
+export 'package:coding_with_t_ecommerce2/features/authentications/controllers/login/login_controller.dart';
+export 'package:coding_with_t_ecommerce2/features/authentications/screens/login/widgets/login_form.dart';
+export 'package:coding_with_t_ecommerce2/utils/validator/validators.dart';

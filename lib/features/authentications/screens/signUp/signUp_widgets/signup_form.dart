@@ -1,6 +1,4 @@
 import 'package:coding_with_t_ecommerce2/features/authentications/controllers/signup/signup_controller.dart';
-import 'package:coding_with_t_ecommerce2/utils/validator/validators.dart';
-
 import '../../../../../utils/constants/imported_statement.dart';
 
 class TSignUpForm extends StatelessWidget {
