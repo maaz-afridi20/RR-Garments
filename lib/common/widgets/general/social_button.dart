@@ -1,19 +1,20 @@
 import '../../../utils/constants/imported_statement.dart';
 
-class SocialButton extends StatelessWidget {
-  const SocialButton({
+class TSocialButton extends StatelessWidget {
+  const TSocialButton({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
     return Container(
       decoration: BoxDecoration(
         border: Border.all(color: TColors.softGrey),
         borderRadius: BorderRadius.circular(100),
       ),
       child: IconButton(
-        onPressed: () {},
+        onPressed: () => controller.googleSignIn(),
         icon: const Image(
           width: TSizes.iconMd,
           height: TSizes.iconMd,

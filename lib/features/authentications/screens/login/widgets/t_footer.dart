@@ -10,7 +10,7 @@ class TFooter extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const SocialButton(),
+        const TSocialButton(),
         const SizedBox(width: TSizes.spaceBwItems),
         Container(
           decoration: BoxDecoration(

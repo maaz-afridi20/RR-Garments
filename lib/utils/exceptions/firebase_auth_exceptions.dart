@@ -8,7 +8,6 @@ class TFirebaseAuthException implements Exception {
         return "This email is already registered. Please use another email";
       case 'invalid-email':
         return "This email is invalid. Please use another email";
-
       case 'weak-password':
         return "The entered password is weak. Please use another password";
       case 'user-disabled':

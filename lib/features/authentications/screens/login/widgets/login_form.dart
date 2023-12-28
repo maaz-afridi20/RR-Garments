@@ -38,9 +38,8 @@ class TLoginForm extends StatelessWidget {
                   prefixIcon: const Icon(Iconsax.password_check),
                   labelText: TTextStrings.password,
                   suffixIcon: IconButton(
-                    onPressed: () =>
-                        controller.hidePassword.value !=
-                        controller.hidePassword.value,
+                    onPressed: () => controller.hidePassword.value =
+                        !controller.hidePassword.value,
                     icon: Icon(controller.hidePassword.value
                         ? Iconsax.eye_slash
                         : Iconsax.eye),

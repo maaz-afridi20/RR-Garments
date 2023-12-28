@@ -120,3 +120,5 @@ export 'package:coding_with_t_ecommerce2/utils/exceptions/platform_exception.dar
 export 'package:coding_with_t_ecommerce2/features/authentications/controllers/login/login_controller.dart';
 export 'package:coding_with_t_ecommerce2/features/authentications/screens/login/widgets/login_form.dart';
 export 'package:coding_with_t_ecommerce2/utils/validator/validators.dart';
+export 'package:flutter/foundation.dart';
+export 'package:google_sign_in/google_sign_in.dart';

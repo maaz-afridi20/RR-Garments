@@ -7,7 +7,7 @@ class UserModel {
   String userName;
   String lastName;
   final String email;
-  final String password;
+
   String phoneNumber;
   String profilePicture;
 
@@ -17,7 +17,6 @@ class UserModel {
       required this.id,
       required this.lastName,
       required this.userName,
-      required this.password,
       required this.phoneNumber,
       required this.profilePicture});
 
@@ -30,7 +29,7 @@ class UserModel {
   String get formatedPhoneNumber => TFormatters.formatPhoneNumber(phoneNumber);
 
   // function to split full name to firstname and lastname
-  List<String> nameParts(fullName) => fullName.split(" ");
+  static List<String> nameParts(fullName) => fullName.split(" ");
 
   // function to generate a user name from full name
 
@@ -49,7 +48,6 @@ class UserModel {
   static UserModel empty() => UserModel(
       email: '',
       userName: '',
-      password: "",
       firstName: "",
       id: "",
       lastName: "",
@@ -72,14 +70,14 @@ class UserModel {
     if (document.data() != null) {
       final data = document.data();
       return UserModel(
-          email: data!['Email'] ?? '',
-          firstName: data['FirstName'] ?? '',
-          id: document.id,
-          lastName: data['LastName'] ?? '',
-          phoneNumber: data['PhoneNumber'] ?? '',
-          profilePicture: data['PhoneNumber'] ?? '',
-          userName: data['userName'] ?? '',
-          password: data['password'] ?? '');
+        email: data!['Email'] ?? '',
+        firstName: data['FirstName'] ?? '',
+        id: document.id,
+        lastName: data['LastName'] ?? '',
+        phoneNumber: data['PhoneNumber'] ?? '',
+        profilePicture: data['PhoneNumber'] ?? '',
+        userName: data['userName'] ?? '',
+      );
     }
 
     throw Exception('some error occurred');

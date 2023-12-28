@@ -17,9 +17,8 @@ class RememberAndForgot extends StatelessWidget {
           children: [
             Obx(() => Checkbox(
                   value: controller.rememberMe.value,
-                  onChanged: (value) =>
-                      controller.rememberMe.value !=
-                      controller.rememberMe.value,
+                  onChanged: (value) => controller.rememberMe.value =
+                      !controller.rememberMe.value,
                 )),
             const Text(TTextStrings.rememberMe),
           ],
