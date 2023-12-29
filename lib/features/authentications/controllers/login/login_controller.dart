@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/personalization/controllers/user_controller.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class LoginController extends GetxController {
@@ -19,12 +18,12 @@ class LoginController extends GetxController {
   // local storage mein wo get kr lega matlab k dobara
   // type krnay k need nai hogi
   // hm khud hii already logged in ho jayngay...
-  // @override
-  // void onInit() {
-  //   emailC.text = localStorage.read('REMEMBER_ME_EMAIL');
-  //   passwordC.text = localStorage.read('REMEMBER_ME_PASSWORD');
-  //   super.onInit();
-  // }
+  @override
+  void onInit() {
+    emailC.text = localStorage.read('REMEMBER_ME_EMAIL');
+    passwordC.text = localStorage.read('REMEMBER_ME_PASSWORD');
+    super.onInit();
+  }
 
   Future<void> emailAndPasswordSignIn() async {
     try {

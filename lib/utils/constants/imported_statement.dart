@@ -122,3 +122,4 @@ export 'package:coding_with_t_ecommerce2/features/authentications/screens/login/
 export 'package:coding_with_t_ecommerce2/utils/validator/validators.dart';
 export 'package:flutter/foundation.dart';
 export 'package:google_sign_in/google_sign_in.dart';
+export 'package:coding_with_t_ecommerce2/features/personalization/controllers/user_controller.dart';
