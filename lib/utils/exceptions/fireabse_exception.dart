@@ -54,7 +54,7 @@ class TFirebaseException implements Exception {
         return "Password is weak";
       case 'invalid-sender':
         return "The email template sender is invalid";
-      case 'invalid-credentials':
+      case 'INVALID_LOGIN_CREDENTIALS':
         return "The supplied credentials are invalid";
       default:
         return "Unknown error occurred";

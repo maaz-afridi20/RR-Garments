@@ -11,7 +11,7 @@ class TLoaders {
       isDismissible: true,
       shouldIconPulse: true,
       colorText: TColors.white,
-      backgroundColor: Colors.orange,
+      backgroundColor: TColors.buttonPrimaryColor,
       snackPosition: SnackPosition.BOTTOM,
       duration: Duration(seconds: duration),
       margin: const EdgeInsets.all(10),
@@ -68,5 +68,26 @@ class TLoaders {
         ),
       ),
     );
+  }
+
+  //! only it will show the popup
+  static confirmationPopUp(
+      String confirmText, String title, String middleText, Function() onPress) {
+    Get.defaultDialog(
+        contentPadding: const EdgeInsets.all(TSizes.md),
+        title: title,
+        middleText: middleText,
+        confirm: ElevatedButton(
+            onPressed: onPress,
+            style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.red,
+                side: const BorderSide(color: Colors.red)),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: TSizes.lg),
+              child: Text(confirmText),
+            )),
+        cancel: OutlinedButton(
+            onPressed: () => Navigator.of(Get.overlayContext!).pop(),
+            child: const Text('Cancel')));
   }
 }

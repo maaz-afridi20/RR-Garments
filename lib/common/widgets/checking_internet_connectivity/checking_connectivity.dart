@@ -23,7 +23,8 @@ class NetworkManager extends GetxController {
   // this will update the connectivity status
   // and show the revelant animation
 
-  Future<void> _updateConnectionStatus() async {
+  Future<void> _updateConnectionStatus(ConnectivityResult result) async {
+    _connectionStatus.value = result;
     if (_connectionStatus.value == ConnectivityResult.none) {
       TLoaders.warningSnackbar(title: 'No Internet Connection');
     }

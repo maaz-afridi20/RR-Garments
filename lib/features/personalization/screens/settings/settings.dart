@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/shop/screens/order/order.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -9,6 +8,7 @@ class SettingsScreen extends StatelessWidget {
     final bool dark = THelperFunction.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             // -----------------------HEADER/Appbar------------------------------
@@ -117,7 +117,11 @@ class SettingsScreen extends StatelessWidget {
               child: SizedBox(
                 width: double.infinity,
                 child: OutlinedButton(
-                    onPressed: () => AuthenticationRepository.instance.logOut(),
+                    onPressed: () => TLoaders.confirmationPopUp(
+                        'LogOut',
+                        'Confirm',
+                        'Are you confirm to logout from your account',
+                        () => AuthenticationRepository.instance.logOut()),
                     child: const Text('Log Out')),
               ),
             ),

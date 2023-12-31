@@ -27,15 +27,18 @@ class LoginController extends GetxController {
 
   Future<void> emailAndPasswordSignIn() async {
     try {
-      TFullScreenLoader.openLoadingDialog('Logging In You :)', TImages.json3);
-
-      // check the internet connection
-      final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {}
       //
       // form validation
 
       if (!loginKey.currentState!.validate()) {}
+
+      //! showing the animation of loading
+      TFullScreenLoader.openLoadingDialog(
+          'Logging In You :)', TImages.docerAnimation);
+
+      // check the internet connection
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {}
 
       //! save the data if remember me is enabled
       if (rememberMe.value) {
@@ -70,15 +73,12 @@ class LoginController extends GetxController {
     try {
       //! open loading
       TFullScreenLoader.openLoadingDialog(
-          'Logging You! BE PATIENT', TImages.json5);
+          'Logging You! BE PATIENT', TImages.docerAnimation);
 
       //! check the internet connection
 
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) {
-        TFullScreenLoader.stopLoading();
-        return;
-      }
+      if (!isConnected) {}
       //! google authentication
 
       final userCredentials =

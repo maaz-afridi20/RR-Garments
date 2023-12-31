@@ -42,7 +42,7 @@ class TFirebaseAuthException implements Exception {
         return "The action code is missing.";
       case 'user-token-expired':
         return "User's token is expired.";
-      case 'invalid-credentials':
+      case 'invalid-credential':
         return "The supplied credentials are invalid.";
       case 'user-token-revoked':
         return "User's token is revoked.";

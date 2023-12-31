@@ -1,5 +1,4 @@
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
-import 'package:coding_with_t_ecommerce2/utils/formatters/formatters.dart';
 
 class UserModel {
   final String id;
@@ -58,12 +57,19 @@ class UserModel {
     return {
       'FirstName': firstName,
       'LastName': lastName,
-      'UserName': id,
+      'UserName': userName,
       'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
     };
   }
+
+  // so jab b hm koi data ko get krtay hain firebase say
+  // tu wo snapshot leta hai uss data ka matlab k return krta haii
+  // so jab b hm data get karein firebase say tu wo tu json yani k (map) mein hota hai
+  // tu jo data firebase say ata hai tu
+  // uss ko hm iss usermodel.fromsnapsht ki help say uss data ko
+  // get kr letay hain orr kahin b hm chahein use kr sktay hain...
 
   factory UserModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
@@ -75,11 +81,11 @@ class UserModel {
         id: document.id,
         lastName: data['LastName'] ?? '',
         phoneNumber: data['PhoneNumber'] ?? '',
-        profilePicture: data['PhoneNumber'] ?? '',
-        userName: data['userName'] ?? '',
+        profilePicture: data['ProfilePicture'] ?? '',
+        userName: data['UserName'] ?? '',
       );
+    } else {
+      return UserModel.empty();
     }
-
-    throw Exception('some error occurred');
   }
 }

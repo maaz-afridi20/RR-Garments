@@ -14,6 +14,7 @@ class FavouriteScreen extends StatelessWidget {
         ],
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(

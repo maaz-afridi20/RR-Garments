@@ -43,6 +43,37 @@ class TImages {
   static const String json3 = "assets/images/lotties/3.json";
   static const String json4 = "assets/images/lotties/4.json";
   static const String json5 = "assets/images/lotties/5.json";
+  static const String emptyAnimation =
+      "assets/images/lotties/53207-empty-file.json";
+  static const String securityIcon =
+      "assets/images/lotties/67263-security-icon-transparent.json";
+  static const String cgeckRegister =
+      "assets/images/lotties/72785-check-register.json";
+  static const String serachingJson =
+      "assets/images/lotties/72785-searching.json";
+  static const String packingInProgress =
+      "assets/images/lotties/98783-packaging-in-progress.json";
+  static const String thankJson = "assets/images/lotties/104368-thank-you.json";
+  static const String orderCompleteCartAnimation =
+      "assets/images/lotties/ordercompletecaranimation.json";
+  static const String loaderAnimation =
+      "assets/images/lotties/loader-animation.json";
+  static const String ladyAddingProduct =
+      "assets/images/lotties/lady-adding-product-in-cart-animation.json";
+  static const String cloudUploadingAnimation =
+      "assets/images/lotties/cloud-uploading-animation.json";
+  static const String docerAnimation =
+      "assets/images/lotties/141594-animation-of-docer.json";
+  static const String loadingJuggle =
+      "assets/images/lotties/141397-loading-juggle.json";
+  static const String pencilDrwaing =
+      "assets/images/lotties/140429-pencil-drawing.json";
+  static const String cartRides =
+      "assets/images/lotties/136491-animation-lottie-car-rides.json";
+  static const String paymentSuccessful =
+      "assets/images/lotties/120978-payment-successful.json";
+  static const String paperPlane =
+      "assets/images/lotties/110052-paper-plane.json";
 
 // ----------------------------Payment method images------------------------------------
 
