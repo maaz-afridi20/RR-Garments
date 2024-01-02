@@ -9,6 +9,8 @@ class NetworkManager extends GetxController {
 
   final Rx<ConnectivityResult> _connectionStatus = ConnectivityResult.none.obs;
 
+  bool initialCheck = true;
+
   // this will innitialize the network manager and stream and wil check the connection
   // status continuously
 
@@ -25,15 +27,22 @@ class NetworkManager extends GetxController {
 
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
     _connectionStatus.value = result;
+
+    if (initialCheck) {
+      initialCheck = false;
+      return;
+    }
+
     if (_connectionStatus.value == ConnectivityResult.none) {
       TLoaders.warningSnackbar(
           title: 'No Internet Connection',
           message: 'your connection is not available! please try again');
-    } else if (_connectionStatus.value != ConnectivityResult.none) {
+    } else {
       TLoaders.successSnackbar(
           title: 'Connection Restored',
           message: 'Your connection has been restored');
     }
+    _connectionStatus.value = result;
   }
 
   Future<bool> isConnected() async {
