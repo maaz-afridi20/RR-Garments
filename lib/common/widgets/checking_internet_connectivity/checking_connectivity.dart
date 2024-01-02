@@ -17,7 +17,7 @@ class NetworkManager extends GetxController {
     super.onInit();
 
     _connectivitySubscription = _connectivity.onConnectivityChanged
-        .listen((event) => _updateConnectionStatus);
+        .listen((event) => _updateConnectionStatus(event));
   }
 
   // this will update the connectivity status
@@ -26,7 +26,13 @@ class NetworkManager extends GetxController {
   Future<void> _updateConnectionStatus(ConnectivityResult result) async {
     _connectionStatus.value = result;
     if (_connectionStatus.value == ConnectivityResult.none) {
-      TLoaders.warningSnackbar(title: 'No Internet Connection');
+      TLoaders.warningSnackbar(
+          title: 'No Internet Connection',
+          message: 'your connection is not available! please try again');
+    } else if (_connectionStatus.value != ConnectivityResult.none) {
+      TLoaders.successSnackbar(
+          title: 'Connection Restored',
+          message: 'Your connection has been restored');
     }
   }
 
@@ -36,7 +42,7 @@ class NetworkManager extends GetxController {
       if (result == ConnectivityResult.none) {
         return false;
       } else {
-        return false;
+        return true;
       }
     } on PlatformException catch (_) {
       return false;

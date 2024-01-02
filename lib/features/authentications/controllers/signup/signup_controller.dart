@@ -28,7 +28,10 @@ class SignUpControler extends GetxController {
 
       final isConnected = await NetworkManager.instance.isConnected();
 
-      if (!isConnected) {}
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
 
       // //! form validation
 
