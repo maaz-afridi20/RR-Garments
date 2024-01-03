@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/widgets/re_authenticate_user.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class UserController extends GetxController {
@@ -8,6 +7,7 @@ class UserController extends GetxController {
   final verifyEmail = TextEditingController();
   final verifyPassword = TextEditingController();
   final hidePassword = false.obs;
+  final isImageUploading = false.obs;
   final GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
 
   Rx<UserModel> user = UserModel.empty().obs;
@@ -37,30 +37,35 @@ class UserController extends GetxController {
 
   Future<void> saveUserRecord(UserCredential? userCredentials) async {
     try {
-      if (userCredentials != null) {
-        // convert the  name and to first name and lastname
+      // refresh the user record
+      await fetchUserRecord();
 
-        final nameParts =
-            UserModel.nameParts(userCredentials.user!.displayName ?? '');
-        final userName =
-            UserModel.generateUserName(userCredentials.user!.displayName ?? '');
+      if (user.value.id.isEmpty) {
+        if (userCredentials != null) {
+          // convert the  name and to first name and lastname
 
-        //! map the user data to user model
-        //
+          final nameParts =
+              UserModel.nameParts(userCredentials.user!.displayName ?? '');
+          final userName = UserModel.generateUserName(
+              userCredentials.user!.displayName ?? '');
 
-        final user = UserModel(
-            email: userCredentials.user!.email ?? '',
-            firstName: nameParts[0],
-            id: userCredentials.user!.uid,
-            lastName:
-                nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
-            userName: userName,
-            phoneNumber: userCredentials.user!.phoneNumber ?? '',
-            profilePicture: userCredentials.user!.photoURL ?? '');
+          //! map the user data to user model
+          //
 
-        // save the data
+          final user = UserModel(
+              email: userCredentials.user!.email ?? '',
+              firstName: nameParts[0],
+              id: userCredentials.user!.uid,
+              lastName:
+                  nameParts.length > 1 ? nameParts.sublist(1).join(' ') : '',
+              userName: userName,
+              phoneNumber: userCredentials.user!.phoneNumber ?? '',
+              profilePicture: userCredentials.user!.photoURL ?? '');
 
-        await userRepository.saveUserData(user);
+          // save the data
+
+          await userRepository.saveUserData(user);
+        }
       }
     } catch (e) {
       TLoaders.warningSnackbar(
@@ -156,6 +161,38 @@ class UserController extends GetxController {
         cancel: OutlinedButton(
             onPressed: () => Navigator.of(Get.overlayContext!).pop(),
             child: const Text('Cancel')));
+  }
+
+  //! updload the image
+
+  uploadUserProfileImage() async {
+    try {
+      final image = await ImagePicker().pickImage(
+          source: ImageSource.gallery,
+          imageQuality: 70,
+          maxWidth: 512,
+          maxHeight: 512);
+      if (image != null) {
+        isImageUploading.value = true;
+
+        final imageUrl =
+            await userRepository.uploadImage('Users/Images/Profile/', image);
+
+        // update the user record.
+        Map<String, dynamic> json = {'ProfilePicture': imageUrl};
+        await userRepository.updateSingleField(json);
+        user.value.profilePicture = imageUrl;
+        user.refresh();
+        TLoaders.successSnackbar(
+            title: 'Congratulations',
+            message: 'profile picture has been updated successfully');
+      }
+    } catch (e) {
+      TLoaders.errorSnackbar(
+          title: 'OOPSS', message: 'Something went wrong $e');
+    } finally {
+      isImageUploading.value = false;
+    }
   }
 
   Future<void> copyToClipboard(String texToCopy) async {

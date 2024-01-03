@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class UserRepository extends GetxController {
@@ -93,6 +94,28 @@ class UserRepository extends GetxController {
   Future<void> removeUserRecord(String userId) async {
     try {
       await _db.collection("Users").doc(userId).delete();
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      if (kDebugMode) print(e.toString());
+      throw 'Something went wrong! TRY AGAIN LATER';
+    }
+  }
+
+  //! upload any image files
+
+  Future<String> uploadImage(String path, XFile image) async {
+    try {
+      // ye ref mein humein ye define krna hai k
+      // ye image save konsiii path mein krni hai firebase mein
+      final ref = FirebaseStorage.instance.ref(path).child(image.name);
+      await ref.putFile(File(image.path));
+      final url = await ref.getDownloadURL();
+      return url;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on FormatException catch (_) {

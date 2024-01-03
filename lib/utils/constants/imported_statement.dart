@@ -130,3 +130,7 @@ export 'package:coding_with_t_ecommerce2/features/personalization/screens/profil
 export 'package:coding_with_t_ecommerce2/features/personalization/screens/edit_profile/controllers/update_name_controller.dart';
 export 'package:coding_with_t_ecommerce2/features/shop/screens/order/order.dart';
 export 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/widgets/update_name_screen.dart';
+export 'package:image_picker/image_picker.dart';
+export 'package:firebase_storage/firebase_storage.dart';
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/widgets/re_authenticate_user.dart';
