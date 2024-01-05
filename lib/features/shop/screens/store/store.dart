@@ -1,5 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/shop/screens/brands/all_brands_screen.dart';
-import 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/widgets/category_tab.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -7,10 +5,12 @@ class StoreScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final categories = CategoryController.instance.featuredCategories;
+
     // ! the default tab controller is for the Tabbar view
     // ! otherwise it will not work
     return DefaultTabController(
-      length: 5,
+      length: categories.length,
       // ! this length will be the number of tabs that we have
       child: Scaffold(
         appBar: TAppbar(
@@ -68,26 +68,18 @@ class StoreScreen extends StatelessWidget {
                 ),
                 // ---------------Tabs--------------
 
-                bottom: const TTabbar(
-                  tabs: [
-                    Tab(child: Text('Sports')),
-                    Tab(child: Text('Electronics')),
-                    Tab(child: Text('Furniture')),
-                    Tab(child: Text('Cosmetics')),
-                    Tab(child: Text('Shoes')),
-                  ],
+                bottom: TTabbar(
+                  tabs: categories
+                      .map((category) => Tab(child: Text(category.name)))
+                      .toList(),
                 ),
               ),
             ];
           },
-          body: const TabBarView(
-            children: [
-              TCategotyTab(),
-              TCategotyTab(),
-              TCategotyTab(),
-              TCategotyTab(),
-              TCategotyTab()
-            ],
+          body: TabBarView(
+            children: categories
+                .map((category) => TCategotyTab(category: category))
+                .toList(),
           ),
         ),
       ),

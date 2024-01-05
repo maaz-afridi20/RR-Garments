@@ -1,23 +1,26 @@
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class UserModel {
-  final String id;
+  String? id;
   String firstName;
   String userName;
   String lastName;
   final String email;
+  List? addresses;
 
   String phoneNumber;
   String profilePicture;
 
-  UserModel(
-      {required this.email,
-      required this.firstName,
-      required this.id,
-      required this.lastName,
-      required this.userName,
-      required this.phoneNumber,
-      required this.profilePicture});
+  UserModel({
+    required this.email,
+    required this.firstName,
+    this.id,
+    required this.lastName,
+    required this.userName,
+    required this.phoneNumber,
+    required this.profilePicture,
+    this.addresses,
+  });
 
 // helper function to get the full name
 
@@ -45,13 +48,15 @@ class UserModel {
   }
 
   static UserModel empty() => UserModel(
-      email: '',
-      userName: '',
-      firstName: "",
-      id: "",
-      lastName: "",
-      phoneNumber: "",
-      profilePicture: "");
+        email: '',
+        userName: '',
+        firstName: "",
+        id: "",
+        lastName: "",
+        phoneNumber: "",
+        profilePicture: "",
+        addresses: [],
+      );
 
   Map<String, dynamic> toJson() {
     return {

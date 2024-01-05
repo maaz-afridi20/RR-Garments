@@ -1,8 +1,9 @@
-import 'package:coding_with_t_ecommerce2/common/widgets/products/products_card/brand_showcase.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class TCategotyTab extends StatelessWidget {
-  const TCategotyTab({super.key});
+  const TCategotyTab({super.key, required this.category});
+
+  final CategoryModel category;
 
   @override
   Widget build(BuildContext context) {

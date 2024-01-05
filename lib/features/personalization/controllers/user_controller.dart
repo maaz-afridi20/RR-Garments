@@ -40,7 +40,7 @@ class UserController extends GetxController {
       // refresh the user record
       await fetchUserRecord();
 
-      if (user.value.id.isEmpty) {
+      if (user.value.id!.isEmpty) {
         if (userCredentials != null) {
           // convert the  name and to first name and lastname
 

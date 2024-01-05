@@ -13,67 +13,27 @@ class TFormatException implements Exception {
 
   factory TFormatException.fromCode(String code) {
     switch (code) {
-      case 'email-already-in-use':
+      case 'invalid-email-format':
         return const TFormatException(
-            "This email is already registered. Please use another email");
-      case 'invalid-email':
+            'The email address format is invalid. Please enter a valid email.');
+      case 'invalid-phone-number-format':
         return const TFormatException(
-            "This email is invalid. Please use another email");
-
-      case 'weak-password':
+            'The provided phone number format is invalid. Please enter a valid number.');
+      case 'invalid-date-format':
         return const TFormatException(
-            "The entered password is weak. Please use another password");
-      case 'user-disabled':
+            'The date format is invalid. Please enter a valid date.');
+      case 'invalid-url-format':
         return const TFormatException(
-            "This account is disabled. Please contact the administrator");
-      case 'user-not-found':
-        return const TFormatException("Invaild deails. user not found");
-      case 'wrong-password':
+            'The URL format is invalid. Please enter a valid URL.');
+      case 'invalid-credit-card-format':
         return const TFormatException(
-            "Incorrect password. Please check your password");
-      case 'invalid-verify-code':
-        return const TFormatException("Invalid verify code.");
-      case 'invalid-verify-id':
-        return const TFormatException("Invalid verify ID.");
-      case 'quota-exceeded':
+            'The credit card format is invalid. Please enter a valid credit card number.');
+      case 'invalid-numeric-format':
         return const TFormatException(
-            "Quota exceeded. Please try again later.");
-      case 'email-already-exists':
-        return const TFormatException("This email address already exists");
-      case 'provider-already-linked':
-        return const TFormatException(
-            "This provider is already linked with another provider");
-      case 'requires-recent-login':
-        return const TFormatException(
-            "This requires a recent login. please login again");
-      case 'credentials-already-in-use':
-        return const TFormatException(
-            "This credentials is already associated with another account");
-      case 'user-mismatch':
-        return const TFormatException("User is mismatching");
-      case 'operation-not-allowed':
-        return const TFormatException(
-            "This operation is not allowed. Please contact");
-      case 'expired-action-code':
-        return const TFormatException("The code is expired.");
-      case 'invalid-action-code':
-        return const TFormatException("This action is invalid.");
-      case 'missing-action-code':
-        return const TFormatException("The action code is missing.");
-      case 'user-token-expired':
-        return const TFormatException("User's token is expired.");
-      case 'invalid-credentials':
-        return const TFormatException("The supplied credentials are invalid.");
-      case 'user-token-revoked':
-        return const TFormatException("User's token is revoked.");
-      case 'invalid-message-payload':
-        return const TFormatException(
-            "The email verification message payload is invalid.");
-      case 'invalid-sender':
-        return const TFormatException("The email template sender is invalid.");
-
+            'The input should be a valid numeric format.');
+      // Add more cases as needed...
       default:
-        return const TFormatException("some error occurred");
+        return const TFormatException();
     }
   }
 }

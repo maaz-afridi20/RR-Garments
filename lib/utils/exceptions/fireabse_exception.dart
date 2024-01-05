@@ -5,59 +5,91 @@ class TFirebaseException implements Exception {
   String get message {
     switch (code) {
       case 'unknown':
-        return "unknown firebase exception";
+        return 'An unknown Firebase error occurred. Please try again.';
       case 'invalid-custom-token':
-        return "The custom token is format is invalid";
+        return 'The custom token format is incorrect. Please check your custom token.';
       case 'custom-token-mismatch':
-        return "Token is mismatched.";
-      case 'user-not-found':
-        return "Invalid details. User not found";
+        return 'The custom token corresponds to a different audience.';
       case 'user-disabled':
-        return "This account is disabled. Please contact the administrator";
-      case 'too-many-requests':
-        return "Too many requests. Please try again later";
-      case 'operation-not-allowed':
-        return "This operation is not allowed. Please contact";
-      case 'user-mismatch':
-        return "User is mismatching";
-      case 'invalid-credential':
-        return "The supplied credential is invalid";
-      case 'email-already-exists':
-        return "This email address already exists";
-      case 'requires-recent-login':
-        return "This requires a recent login. Please log in again";
-      case 'provider-already-linked':
-        return "This provider is already linked with another provider";
-      case 'credential-already-in-use':
-        return "This credential is already associated with another account";
-      case 'user-token-expired':
-        return "User's token is expired";
-      case 'user-token-revoked':
-        return "User's token is revoked";
-      case 'invalid-message-payload':
-        return "The email verification message payload is invalid";
-      case 'invalid-verify-code':
-        return "Invalid verification code";
-      case 'invalid-verify-id':
-        return "Invalid verification ID";
-      case 'expired-action-code':
-        return "The action code has expired";
-      case 'invalid-action-code':
-        return "This action code is invalid";
-      case 'missing-action-code':
-        return "The action code is missing";
-      case 'quota-exceeded':
-        return "Quota exceeded. Please try again later";
+        return 'The user account has been disabled.';
+      case 'user-not-found':
+        return 'No user found for the given email or UID.';
       case 'invalid-email':
-        return "The email address is invalid. Please try again later";
+        return 'The email address provided is invalid. Please enter a valid email.';
+      case 'email-already-in-use':
+        return 'The email address is already registered. Please use a different email.';
+      case 'wrong-password':
+        return 'Incorrect password. Please check your password and try again.';
       case 'weak-password':
-        return "Password is weak";
+        return 'The password is too weak. Please choose a stronger password.';
+      case 'provider-already-linked':
+        return 'The account is already linked with another provider.';
+      case 'operation-not-allowed':
+        return 'This operation is not allowed. Contact support for assistance.';
+      case 'invalid-credential':
+        return 'The supplied credential is malformed or has expired.';
+      case 'invalid-verification-code':
+        return 'Invalid verification code. Please enter a valid code.';
+      case 'invalid-verification-id':
+        return 'Invalid verification ID. Please request a new verification code.';
+      case 'captcha-check-failed':
+        return 'The reCAPTCHA response is invalid. Please try again.';
+      case 'app-not-authorized':
+        return 'The app is not authorized to use Firebase Authentication with the provided API key.';
+      case 'keychain-error':
+        return 'A keychain error occurred. Please check the keychain and try again.';
+      case 'internal-error':
+        return 'An internal authentication error occurred. Please try again later.';
+      case 'invalid-app-credential':
+        return 'The app credential is invalid. Please provide a valid app credential.';
+      case 'user-mismatch':
+        return 'The supplied credentials do not correspond to the previously signed-in user.';
+      case 'requires-recent-login':
+        return 'This operation is sensitive and requires recent authentication. Please log in again.';
+      case 'quota-exceeded':
+        return 'Quota exceeded. Please try again later.';
+      case 'account-exists-with-different-credential':
+        return 'An account already exists with the same email but different sign-in credentials.';
+      case 'missing-iframe-start':
+        return 'The email template is missing the iframe start tag.';
+      case 'missing-iframe-end':
+        return 'The email template is missing the iframe end tag.';
+      case 'missing-iframe-src':
+        return 'The email template is missing the iframe src attribute.';
+      case 'auth-domain-config-required':
+        return 'The authDomain configuration is required for the action code verification link.';
+      case 'missing-app-credential':
+        return 'The app credential is missing. Please provide valid app credentials.';
+      case 'session-cookie-expired':
+        return 'The Firebase session cookie has expired. Please sign in again.';
+      case 'uid-already-exists':
+        return 'The provided user ID is already in use by another user.';
+      case 'web-storage-unsupported':
+        return 'Web storage is not supported or is disabled.';
+      case 'app-deleted':
+        return 'This instance of FirebaseApp has been deleted.';
+      case 'user-token-mismatch':
+        return 'The provided user\'s token has a mismatch with the authenticated user\'s user ID.';
+      case 'invalid-message-payload':
+        return 'The email template verification message payload is invalid.';
       case 'invalid-sender':
-        return "The email template sender is invalid";
+        return 'The email template sender is invalid. Please verify the sender\'s email.';
+      case 'invalid-recipient-email':
+        return 'The recipient email address is invalid. Please provide a valid recipient email.';
+      case 'missing-action-code':
+        return 'The action code is missing. Please provide a valid action code.';
+      case 'user-token-expired':
+        return 'The user\'s token has expired, and authentication is required. Please sign in again.';
       case 'INVALID_LOGIN_CREDENTIALS':
-        return "The supplied credentials are invalid";
+        return 'Invalid login credentials.';
+      case 'expired-action-code':
+        return 'The action code has expired. Please request a new action code.';
+      case 'invalid-action-code':
+        return 'The action code is invalid. Please check the code and try again.';
+      case 'credential-already-in-use':
+        return 'This credential is already associated with a different user account.';
       default:
-        return "Unknown error occurred";
+        return 'An unexpected Firebase error occurred. Please try again.';
     }
   }
 }
