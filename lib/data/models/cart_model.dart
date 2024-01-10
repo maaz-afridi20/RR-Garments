@@ -1,4 +1,4 @@
-import 'package:coding_with_t_ecommerce2/utils/constants/image_string.dart';
+import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class CartModel {
   final String cartId;
@@ -36,7 +36,7 @@ class Product {
   final String title;
   final String thumbnail;
   final Brand? brand; // Assuming Brand is another class
-  final List<ProductVariation>?
+  final List<ProductVariationModel>?
       productVariations; // Assuming ProductVariation is another class
 
   Product({
@@ -53,15 +53,15 @@ class Brand {
   Brand({required this.name});
 }
 
-class ProductVariation {
-  final double price;
-  final List<String> attributeValues;
+// class ProductVariation {
+//   final double price;
+//   final Map<String, String> attributeValues;
 
-  ProductVariation({
-    required this.price,
-    required this.attributeValues,
-  });
-}
+//   ProductVariation({
+//     required this.price,
+//     required this.attributeValues,
+//   });
+// }
 
 List<Product> products = [
   Product(
@@ -69,10 +69,18 @@ List<Product> products = [
     thumbnail: TImages.animalIcon,
     brand: Brand(name: 'Brand A'),
     productVariations: [
-      ProductVariation(
-        price: 19.99,
-        attributeValues: ['Size: M', 'Color: Blue'],
-      ),
+      ProductVariationModel(
+          id: '01',
+          stock: 0,
+          price: 142,
+          image: TImages.clothIcon,
+          attributesValues: {'Size': 'M', 'Color': 'Blue'}),
+
+      // ProductVariation(
+      //   price: 19.99,
+      //   // attributeValues: ['Size: M', 'Color: Blue'],
+      //   attributeValues: {'Size': 'M', 'Color': 'Blue'},
+      // ),
     ],
   ),
 ];

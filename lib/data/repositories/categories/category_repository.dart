@@ -57,4 +57,21 @@ class CategoryRepository extends GetxController {
       throw 'something went wrong';
     }
   }
+
+  // Create a list of dummy categories
+  // final List<CategoryModel> dummyCategories = [
+  //   CategoryModel(
+  //       id: '1', name: 'Sports', image: TImages.shoeIcon, isFeatured: true),
+  //   CategoryModel(
+  //       id: '1',
+  //       name: 'Electronics',
+  //       image: TImages.sportIcon,
+  //       isFeatured: true),
+  //   CategoryModel(
+  //       id: '1', name: 'Furniture', image: TImages.sportIcon, isFeatured: true),
+  //   CategoryModel(
+  //       id: '1', name: 'Cosmetics', image: TImages.sportIcon, isFeatured: true),
+  //   CategoryModel(
+  //       id: '1', name: 'Shoes', image: TImages.sportIcon, isFeatured: true),
+  // ];
 }

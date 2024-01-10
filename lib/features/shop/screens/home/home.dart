@@ -55,13 +55,7 @@ class Home extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  const TPromoSlider(
-                    banners: [
-                      TImages.promoBanner4,
-                      TImages.promoBanner5,
-                      TImages.promoBanner6,
-                    ],
-                  ),
+                  const TPromoSlider(),
                   const SizedBox(height: TSizes.spaceBwSections),
 
 // ---------------------------- Heading ------------------------------------

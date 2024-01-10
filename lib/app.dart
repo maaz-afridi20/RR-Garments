@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       theme: TAppTheme.myLightTheme,
       darkTheme: TAppTheme.myDarkTheme,
       initialBinding: GeneralBindings(),
+      getPages: TAppRoutes.pages,
 
       // this will show the progress indicator and will check that which
       // screen should to show.

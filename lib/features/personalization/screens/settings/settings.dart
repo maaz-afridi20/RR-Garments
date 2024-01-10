@@ -1,3 +1,4 @@
+import 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/upload_data_to_firebase.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -84,10 +85,13 @@ class SettingsScreen extends StatelessWidget {
                       title: 'App Settings', showActionButton: false),
                   const SizedBox(height: TSizes.spaceBwItems),
 
-                  const TSettingMenuTile(
-                      icon: Iconsax.document_upload,
-                      subtitle: 'Upload data your database',
-                      title: 'Load Data'),
+                  TSettingMenuTile(
+                    icon: Iconsax.document_upload,
+                    subtitle: 'Upload data your database',
+                    title: 'Load Data',
+                    ontap: () =>
+                        Get.to(() => const UploadDummyDataToFirebaseScreen()),
+                  ),
 
                   TSettingMenuTile(
                     icon: Iconsax.location,

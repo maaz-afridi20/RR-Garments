@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/common/widgets/custom_shapes/circle_container.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class TChoiceChip extends StatelessWidget {

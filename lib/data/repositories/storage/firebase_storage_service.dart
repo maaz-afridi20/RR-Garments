@@ -19,6 +19,7 @@ class TFirebaseStorageService extends GetxController {
     }
   }
 
+  //!from your assets
   Future<String> uploadImageData(
       String path, Uint8List image, String name) async {
     try {
@@ -39,6 +40,7 @@ class TFirebaseStorageService extends GetxController {
     }
   }
 
+  //! from your local storage
   Future<String> uploadImageFile(String path, XFile image) async {
     try {
       final ref = _firebaseStorage.ref(path).child(image.name);
@@ -56,5 +58,17 @@ class TFirebaseStorageService extends GetxController {
 
       throw 'some error occurred';
     }
+  }
+
+  // Handle errors related to Firebase Storage
+  void handleFirebaseStorageError(dynamic e) {
+    if (e is FirebaseException) {
+      throw 'FirebaseException: ${e.message}';
+    } else if (e is SocketException) {
+      throw 'Network Error: ${e.message}';
+    } else if (e is PlatformException) {
+      throw 'Platform Exception: ${e.message}';
+    }
+    throw 'Some error occurred';
   }
 }

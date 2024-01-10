@@ -1,15 +1,15 @@
 class TImages {
-  // -----------------------App logos-----------------------------------------
+  //! -----------------------App logos-----------------------------------------
 
   static const String darkAppLogo = "assets/logos/blackapplogo.png";
   static const String redAppLogo = "assets/logos/redapplogo.png";
 
-  // -----------------------Social logos-----------------------------------------
+  //! -----------------------Social logos-----------------------------------------
 
   static const String googlelogo = "assets/logos/googlelogo.png";
   static const String facebooklogo = "assets/logos/facebooklogo.png";
 
-  // -----------------------Onboarding Images-----------------------------------------
+  //! -----------------------Onboarding Images-----------------------------------------
 
   static const String onBoardingImage1 =
       "assets/images/onboarding_images/delivery_gif.gif";
@@ -20,7 +20,7 @@ class TImages {
   static const String onBoardingImage4 =
       "assets/images/onboarding_images/noconnection_gif.gif";
 
-  // ----------------------------Animations------------------------------------
+  //! ----------------------------Animations------------------------------------
 
   static const String productIllustration =
       "assets/images/animations/sammy-line-workout.gif";
@@ -35,7 +35,7 @@ class TImages {
   static const String verifyIllustration =
       "assets/images/animations/sammy-line-travel-backpack-with-passport-and-air-ticket.gif";
 
-// --Lotties-
+//! --Lotties-
 
   static const String runningLottie = "assets/images/lotties/running.gif";
   static const String json1 = "assets/images/lotties/1.json";
@@ -75,7 +75,7 @@ class TImages {
   static const String paperPlane =
       "assets/images/lotties/110052-paper-plane.json";
 
-// ----------------------------Payment method images------------------------------------
+//! ----------------------------Payment method images------------------------------------
 
   // static const String paypal = "assets/icons/paymentmethods/paypal.png";
   static const String paypal = "assets/icons/paymentmethods/paypal.png";
@@ -91,7 +91,7 @@ class TImages {
       "assets/icons/paymentmethods/successful_payment_icon.png";
   static const String visa = "assets/icons/paymentmethods/visa.png";
 
-// ----------------------------Category Icons------------------------------------
+//! ----------------------------Category Icons------------------------------------
 
   static const String sportIcon =
       "assets/icons/categories/icons8-bowling-64.png";
@@ -112,7 +112,7 @@ class TImages {
   static const String electronicIcon =
       "assets/icons/categories/icons8-smartphone-64.png";
 
-  // ----------------------------Banner Images------------------------------------
+  //! ----------------------------Banner Images------------------------------------
 
   static const String promoBanner1 = "assets/images/banner/banner_1.jpg";
 
@@ -125,7 +125,20 @@ class TImages {
   static const String promoBanner6 =
       "assets/images/products/promo-banner-3.png";
 
-  // ----------------------------Product Images------------------------------------
+  //! ----------------------------Brand logos------------------------------------
+
+  static const String acerlogo = "assets/icons/brands/acer-logo.png";
+  static const String adidaslogo = "assets/icons/brands/adidas-logo.png";
+  static const String applelogo = "assets/icons/brands/apple-logo.png";
+  static const String hermanmiller =
+      "assets/icons/brands/herman-miller-logo.png";
+  static const String ikealogo = "assets/icons/brands/ikea-logo.png";
+  static const String jordanlogo = "assets/icons/brands/jordan-logo.png";
+  static const String kenwoodlogo = "assets/icons/brands/kenwood-logo.png";
+  static const String nikelogo = "assets/icons/brands/nike.png";
+  static const String pumalogo = "assets/icons/brands/puma-logo.png";
+  static const String zara = "assets/icons/brands/zara-logo.png";
+  //! ----------------------------Product Images------------------------------------
   static const String productImage1 = "assets/images/products/nike-shoes.png";
   static const String productImage2 = "assets/images/products/product-1.png";
   static const String productImage3 =

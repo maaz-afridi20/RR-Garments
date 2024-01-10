@@ -17,3 +17,14 @@ enum PaymentMethod {
   razorPay,
   paytm
 }
+
+// enum AppRoutes {
+//   favourite,
+//   search,
+//   profile,
+//   settings,
+//   order,
+//   cart,
+//   userAddress,
+//   checkout
+// }
