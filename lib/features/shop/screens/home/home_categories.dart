@@ -27,11 +27,13 @@ class THomeCategories extends StatelessWidget {
       return SizedBox(
         height: 80,
         child: ListView.builder(
+          physics: const BouncingScrollPhysics(),
           shrinkWrap: true,
           itemCount: categoryController.featuredCategories.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             final category = categoryController.featuredCategories[index];
+
             return TVerticalImageText(
               image: category.image,
               title: category.name,

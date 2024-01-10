@@ -35,10 +35,10 @@ class TVerticalImageText extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
               ),
               child: Center(
-                child: Image(
-                  image: AssetImage(image),
+                child: CachedNetworkImage(
+                  imageUrl: image,
                   fit: BoxFit.cover,
-                  color: dark ? Colors.white : Colors.black,
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
               ),
             ),
@@ -47,13 +47,13 @@ class TVerticalImageText extends StatelessWidget {
             //  ------------------------------- Texts below circulor icon ---------------------------------
 
             SizedBox(
-              width: 55,
+              width: 66,
               child: Text(
                 title,
                 style: Theme.of(context).textTheme.labelSmall!.apply(
                       color: textColor,
                     ),
-                maxLines: 1,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
