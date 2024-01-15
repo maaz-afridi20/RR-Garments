@@ -22,42 +22,47 @@ class TVerticalImageText extends StatelessWidget {
       onTap: onTap,
       child: Padding(
         padding: const EdgeInsets.only(right: TSizes.spaceBwItems),
-        child: Column(
-          children: [
-            //  ------------------------------- circulor icon ---------------------------------
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              //  ------------------------------- circulor icon ---------------------------------
 
-            Container(
-              width: 56,
-              height: 56,
-              padding: const EdgeInsets.all(TSizes.sm),
-              decoration: BoxDecoration(
-                color: backgroundColor ?? (dark ? Colors.white : Colors.black),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: Center(
-                child: CachedNetworkImage(
-                  imageUrl: image,
-                  fit: BoxFit.cover,
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+              Container(
+                width: 56,
+                height: 56,
+                padding: const EdgeInsets.all(TSizes.sm),
+                decoration: BoxDecoration(
+                  color:
+                      backgroundColor ?? (dark ? Colors.white : Colors.black),
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: Center(
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    fit: BoxFit.cover,
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
                 ),
               ),
-            ),
 
-            const SizedBox(height: TSizes.spaceBwItems / 2),
-            //  ------------------------------- Texts below circulor icon ---------------------------------
+              const SizedBox(height: TSizes.spaceBwItems / 2),
+              //  ------------------------------- Texts below circulor icon ---------------------------------
 
-            SizedBox(
-              width: 66,
-              child: Text(
-                title,
-                style: Theme.of(context).textTheme.labelSmall!.apply(
-                      color: textColor,
-                    ),
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+              SizedBox(
+                width: 55,
+                height: 50,
+                child: Text(
+                  title,
+                  style: Theme.of(context).textTheme.labelSmall!.apply(
+                        color: textColor,
+                      ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

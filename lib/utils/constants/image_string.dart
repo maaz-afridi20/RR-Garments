@@ -181,7 +181,7 @@ class TImages {
   static const String productImage22 =
       "assets/images/products/NikeBasketballShoeGreenBlack.png";
   static const String productImage23 =
-      "assets/images/products/NikeWildHorse.png";
+      "assets/images/products/NikeWildhorse.png";
   static const String productImage24 =
       "assets/images/products/tracksuit_black.png";
   static const String productImage25 =

@@ -1,7 +1,9 @@
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
-class ProductDetals extends StatelessWidget {
-  const ProductDetals({super.key});
+class ProductDetalsScreen extends StatelessWidget {
+  const ProductDetalsScreen({super.key, required this.product});
+
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

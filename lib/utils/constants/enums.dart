@@ -18,6 +18,12 @@ enum PaymentMethod {
   paytm
 }
 
+enum ProductType {
+  variable,
+  single,
+}
+
+
 // enum AppRoutes {
 //   favourite,
 //   search,

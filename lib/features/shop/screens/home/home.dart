@@ -5,6 +5,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProductController());
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -68,10 +69,23 @@ class Home extends StatelessWidget {
 
 // ---------------------------- popular products ------------------------------------
 
-                  TGridLayout(
-                    itemCount: 2,
-                    itemBuilder: (_, index) => const TProductsCardVertical(),
-                  ),
+                  Obx(() {
+                    if (controller.isLoading.value) {
+                      return const TVerticalProductShimmer();
+                    }
+
+                    if (controller.featuredProductsList.isEmpty) {
+                      return Center(
+                          child: Text('No Data Found',
+                              style: Theme.of(context).textTheme.bodyMedium));
+                    }
+
+                    return TGridLayout(
+                      itemCount: controller.featuredProductsList.length,
+                      itemBuilder: (_, index) => TProductsCardVertical(
+                          product: controller.featuredProductsList[index]),
+                    );
+                  })
                 ],
               ),
             ),

@@ -18,7 +18,7 @@ class TUserProfileTile extends StatelessWidget {
       return ListTile(
         leading: TCircularImage(
           dark: dark,
-          image: TImages.userImage,
+          image: image,
           width: 50,
           height: 50,
           padding: 0,

@@ -6,7 +6,7 @@ class UploadDummyDataToFirebaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(CategoryRepository());
-    // final firebaseStorageServiceController = Get.put(TFirebaseStorageService());
+    final productRepoController = ProductRepository.instance;
     return Scaffold(
       appBar: TAppbar(showBackArrow: true, title: 'Upload Data'.text.make()),
       body: Padding(
@@ -28,7 +28,9 @@ class UploadDummyDataToFirebaseScreen extends StatelessWidget {
               title: 'Upload Products',
               subtitle: 'Upload all of your products here',
               trailing: GestureDetector(
-                  onTap: () {},
+                  onTap: () => productRepoController
+                      .uploadDummyProduct(TDummyData.products),
+                  // productController.uploadDummyProduct(TDummyData.products),
                   // FirebaseStorageController().uploadImagesAsAWhole(),
                   child: const Icon(Icons.drive_folder_upload)),
             ),
@@ -42,14 +44,6 @@ class UploadDummyDataToFirebaseScreen extends StatelessWidget {
                 title: 'Upload Banners',
                 subtitle: 'Upload all of your banners here',
                 trailing: Icon(Icons.drive_folder_upload)),
-            TSettingMenuTile(
-              icon: Iconsax.card_tick,
-              title: 'Upload Products',
-              subtitle: 'Upload all of your products here',
-              trailing: GestureDetector(
-                  // onTap: () => controller.,
-                  child: const Icon(Icons.drive_folder_upload)),
-            ),
           ],
         ),
       ),

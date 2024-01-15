@@ -1,5 +1,3 @@
-import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
-
 class BrandModel {
   String id;
   String image;
@@ -14,6 +12,11 @@ class BrandModel {
       this.productsCount,
       this.isFeatured});
 
+  //!  empty helper function
+  //
+
+  static BrandModel empty() => BrandModel(id: '', image: '', name: '');
+
 //! convert to json
   Map<String, dynamic> toJson() {
     return {
@@ -27,8 +30,10 @@ class BrandModel {
 
 //! for getting the data from the firebase in the type of json(map).
 
-  factory BrandModel.fromSnapshot(DocumentSnapshot snapshot) {
-    final data = snapshot.data() as Map<String, dynamic>;
+  factory BrandModel.fromJson(Map<String, dynamic> data) {
+    // final data = snapshot.data() as Map<String, dynamic>;
+
+    if (data.isEmpty) return BrandModel.empty();
 
     return BrandModel(
         id: data['id'] ?? '',

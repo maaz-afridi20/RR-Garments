@@ -161,3 +161,7 @@ export 'package:coding_with_t_ecommerce2/features/shop/models/product_variation_
 export 'package:coding_with_t_ecommerce2/routes/app_routes.dart';
 export 'package:coding_with_t_ecommerce2/common/widgets/custom_shapes/curved_edges_widget.dart';
 export 'package:coding_with_t_ecommerce2/data/repositories/categories/dummy_data.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/controllers/product_controller.dart';
+export 'package:coding_with_t_ecommerce2/data/repositories/products/products_repository.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/shimmers/vertical_product_shimmer.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/product_details.dart';

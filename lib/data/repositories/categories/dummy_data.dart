@@ -65,7 +65,7 @@ class TDummyData {
         quantity: 1,
         title: products[0].title,
         image: products[0].thumbnail,
-        brandName: products[0].brand.name,
+        brandName: products[0].brand!.name,
         price: products[0].productVariations![0].price,
         selectedVariation:
             products[0].productVariations![0].attributesValues.values.toList(),
@@ -76,7 +76,7 @@ class TDummyData {
           quantity: 2,
           title: products[0].title,
           image: products[0].thumbnail,
-          brandName: products[0].brand.name,
+          brandName: products[0].brand!.name,
           price: products[0].productVariations![0].price,
           selectedVariation: products[0]
               .productVariations![0]
