@@ -1,28 +1,45 @@
+import 'package:coding_with_t_ecommerce2/features/shop/controllers/products/images_controller.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class TProductImageSlider extends StatelessWidget {
   const TProductImageSlider({
     super.key,
-    required this.dark,
+    required this.product,
   });
-
-  final bool dark;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunction.isDarkMode(context);
+    final controller = Get.put(ImagesController());
+    final images = controller.getAppProductImages(product);
     return TCurvedEdgesWidget(
       child: Container(
         color: dark ? TColors.darkGrey : TColors.lightGrey,
         child: Stack(
           children: [
             //! -----------------------main large image-----------------------
-            const SizedBox(
-                height: 400,
-                child: Padding(
-                  padding: EdgeInsets.all(TSizes.productImageRadius * 2),
-                  child: Center(
-                      child: Image(image: AssetImage(TImages.productImage1))),
-                )),
+            SizedBox(
+              height: 400,
+              child: Padding(
+                padding: const EdgeInsets.all(TSizes.productImageRadius * 2),
+                child: Center(
+                  child: Obx(() {
+                    final image = controller.selectedProductImage.value;
+                    return GestureDetector(
+                      onTap: () => controller.showEnlargeImage(image),
+                      child: CachedNetworkImage(
+                        imageUrl: image,
+                        progressIndicatorBuilder: (_, __, downloadProgress) =>
+                            CircularProgressIndicator(
+                                value: downloadProgress.progress,
+                                color: TColors.basicPprimaryColor),
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            ),
 
             // -----------------------image slider-----------------------
 
@@ -33,19 +50,31 @@ class TProductImageSlider extends StatelessWidget {
               child: SizedBox(
                 height: 80,
                 child: ListView.separated(
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (context, index) => TRoundedImage(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  itemCount: images.length,
+                  itemBuilder: (context, index) => Obx(() {
+                    final imageSelected =
+                        controller.selectedProductImage.value == images[index];
+                    return TRoundedImage(
                       width: 80,
+                      isNetworkImage: true,
+                      imgUrl: images[index],
                       backgroundColor: dark
                           ? TColors.backgroundDarkColor
                           : TColors.backgroundLightColor,
-                      border: Border.all(color: TColors.textPrimaryColor),
                       padding: const EdgeInsets.all(TSizes.sm),
-                      imgUrl: TImages.productImage2),
+                      border: Border.all(
+                          color: imageSelected
+                              ? TColors.basicPprimaryColor
+                              : TColors.transparent),
+                      onPressed: () =>
+                          controller.selectedProductImage.value ==
+                          images[index],
+                    );
+                  }),
                   separatorBuilder: (_, __) => const SizedBox(
                     width: TSizes.spaceBwItems,
                   ),
-                  itemCount: 6,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                 ),

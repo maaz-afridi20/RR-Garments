@@ -7,14 +7,13 @@ class ProductDetalsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunction.isDarkMode(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             //! -----------------------product image slider-----------------------
 
-            TProductImageSlider(dark: dark),
+            TProductImageSlider(product: product),
 
             //! -----------------------product details-----------------------
 
