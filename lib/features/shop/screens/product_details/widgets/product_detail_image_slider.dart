@@ -56,21 +56,21 @@ class TProductImageSlider extends StatelessWidget {
                     final imageSelected =
                         controller.selectedProductImage.value == images[index];
                     return TRoundedImage(
-                      width: 80,
-                      isNetworkImage: true,
-                      imgUrl: images[index],
-                      backgroundColor: dark
-                          ? TColors.backgroundDarkColor
-                          : TColors.backgroundLightColor,
-                      padding: const EdgeInsets.all(TSizes.sm),
-                      border: Border.all(
-                          color: imageSelected
-                              ? TColors.basicPprimaryColor
-                              : TColors.transparent),
-                      onPressed: () =>
-                          controller.selectedProductImage.value ==
-                          images[index],
-                    );
+                        width: 80,
+                        isNetworkImage: true,
+                        imgUrl: images[index],
+                        backgroundColor: dark
+                            ? TColors.backgroundDarkColor
+                            : TColors.backgroundLightColor,
+                        padding: const EdgeInsets.all(TSizes.sm),
+                        border: Border.all(
+                            color: imageSelected
+                                ? TColors.basicPprimaryColor
+                                : TColors.transparent),
+                        onPressed: () {
+                          controller.selectedProductImage.value = images[index];
+                          controller.update();
+                        });
                   }),
                   separatorBuilder: (_, __) => const SizedBox(
                     width: TSizes.spaceBwItems,
