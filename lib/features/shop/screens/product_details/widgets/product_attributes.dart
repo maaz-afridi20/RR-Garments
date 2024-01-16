@@ -2,7 +2,8 @@ import 'package:coding_with_t_ecommerce2/common/widgets/chips/choice_chip.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class TProductAttributes extends StatelessWidget {
-  const TProductAttributes({super.key});
+  const TProductAttributes({super.key, required this.product});
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {

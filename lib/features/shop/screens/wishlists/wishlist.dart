@@ -5,6 +5,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final products = ProductController.instance.featuredProductsList;
     return Scaffold(
       appBar: TAppbar(
         title:
@@ -20,7 +21,7 @@ class FavouriteScreen extends StatelessWidget {
           child: Column(
             children: [
               TGridLayout(
-                itemCount: 4,
+                itemCount: products.length,
                 itemBuilder: (index, context) =>
                     TProductsCardVertical(product: ProductModel.empty()),
               ),

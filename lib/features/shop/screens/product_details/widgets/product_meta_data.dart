@@ -1,11 +1,15 @@
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class TProductMetaData extends StatelessWidget {
-  const TProductMetaData({super.key});
+  const TProductMetaData({super.key, required this.product});
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunction.isDarkMode(context);
+    final controller = ProductController.instance;
+    final salePercetage =
+        controller.calculateSalePercentage(product.price, product.salePrice);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -19,7 +23,7 @@ class TProductMetaData extends StatelessWidget {
               padding: const EdgeInsets.symmetric(
                   horizontal: TSizes.sm, vertical: TSizes.xs),
               child: Text(
-                '25%',
+                '$salePercetage%',
                 style: Theme.of(context)
                     .textTheme
                     .labelLarge!
@@ -28,32 +32,37 @@ class TProductMetaData extends StatelessWidget {
             ),
             //price
             const SizedBox(width: TSizes.spaceBwItems),
-            Text(
-              '\$250',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleSmall!
-                  .apply(decoration: TextDecoration.lineThrough),
-            ),
-            const SizedBox(width: TSizes.spaceBwItems),
-            const TProductPriceText(
-              price: '125',
+            if (product.productType == ProductType.single.toString() &&
+                product.salePrice > 0)
+              Text(
+                '\$${product.price}',
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .apply(decoration: TextDecoration.lineThrough),
+              ),
+            if (product.productType == ProductType.single.toString() &&
+                product.salePrice > 0)
+              const SizedBox(width: TSizes.spaceBwItems),
+            TProductPriceText(
+              price: controller.getProductPrice(product),
               isLarge: true,
             ),
           ],
         ),
 
-        // title
+        //! Title
         const SizedBox(height: TSizes.spaceBwItems / 1.5),
-        const TProductTitleText(title: 'Green NIKE sports shirt'),
+        TProductTitleText(title: product.title),
         const SizedBox(height: TSizes.spaceBwItems / 1.5),
 
         // stock status
         Row(
           children: [
-            const TProductTitleText(title: 'Status'),
+            const TProductTitleText(title: 'Status :'),
             const SizedBox(width: TSizes.spaceBwItems),
-            Text('[In Stock]', style: Theme.of(context).textTheme.titleMedium),
+            Text(controller.getProductStockStatus(product.stock),
+                style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
 
@@ -63,12 +72,13 @@ class TProductMetaData extends StatelessWidget {
           children: [
             TCircularImage(
                 dark: dark,
-                image: TImages.cosmeticIcon,
+                image: product.brand != null ? product.brand!.image : '',
                 width: 32,
                 height: 32,
                 overlayColor: dark ? TColors.white : TColors.black),
-            const TBrandTitleWithVerifiedIcon(
-                title: 'JIYA NOOR', brandTextSizes: TextSizes.medium),
+            TBrandTitleWithVerifiedIcon(
+                title: product.brand != null ? product.brand!.name : '',
+                brandTextSizes: TextSizes.medium),
           ],
         ),
       ],

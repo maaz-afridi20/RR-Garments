@@ -29,12 +29,14 @@ class ProductDetalsScreen extends StatelessWidget {
 
                   //! -----------------------Price,Title,stock and brand -----------------------
 
-                  const TProductMetaData(),
+                  TProductMetaData(product: product),
 
                   //! -----------------------Attributes-----------------------
 
-                  const TProductAttributes(),
-                  const SizedBox(height: TSizes.spaceBwSections),
+                  if (product.productType == ProductType.variable.toString())
+                    TProductAttributes(product: product),
+                  if (product.productType == ProductType.variable.toString())
+                    const SizedBox(height: TSizes.spaceBwSections),
                   //! -----------------------Checkout Button-----------------------
 
                   SizedBox(
@@ -49,16 +51,16 @@ class ProductDetalsScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBwSections),
                   //! -----------------------shor more or less-----------------------
 
-                  const ReadMoreText(
-                    'this is some random text that will be read in the next section this is some random text that will be read in the next sectionof the text file and will be read in the next section of the text file',
+                  ReadMoreText(
+                    product.description ?? '',
                     trimLines: 2,
                     trimMode: TrimMode.Line,
                     trimCollapsedText: ' show more',
                     trimExpandedText: ' show less',
-                    moreStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
-                    lessStyle:
-                        TextStyle(fontSize: 14, fontWeight: FontWeight.w800),
+                    moreStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w800),
+                    lessStyle: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w800),
                   ),
                   const Divider(),
                   //! -----------------------Reviews-----------------------
