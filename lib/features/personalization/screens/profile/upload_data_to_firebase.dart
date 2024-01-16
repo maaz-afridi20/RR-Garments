@@ -16,13 +16,14 @@ class UploadDummyDataToFirebaseScreen extends StatelessWidget {
           children: [
             'Main Record'.text.make(),
             TSettingMenuTile(
-                icon: Iconsax.category,
-                title: 'Upload Categories',
-                subtitle: 'Upload all of your categories here',
-                trailing: GestureDetector(
-                    onTap: () =>
-                        controller.uploadDummyData(TDummyData.categories),
-                    child: const Icon(Icons.drive_folder_upload))),
+              icon: Iconsax.category,
+              title: 'Upload Categories',
+              subtitle: 'Upload all of your categories here',
+              trailing: GestureDetector(
+                onTap: () => controller.uploadDummyData(TDummyData.categories),
+                child: const Icon(Icons.drive_folder_upload),
+              ),
+            ),
             TSettingMenuTile(
               icon: Iconsax.card_tick,
               title: 'Upload Products',

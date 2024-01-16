@@ -386,23 +386,26 @@ class TDummyData {
       id: '001',
       title: 'Green Nike sports shoes',
       stock: 15,
-      price: 150,
+      price: 110,
       isFeatured: true,
       thumbnail: TImages.productImage1,
-      description: 'Green Nike sports shoes',
+      description:
+          'These are Green Nike sports shoes and this is the description of the product the description has been changed after adfafadfas ',
       brand: BrandModel(
           id: '1',
           image: TImages.nikelogo,
           name: 'Nike',
-          productsCount: 265,
+          productsCount: 215,
           isFeatured: true),
       images: [
-        TImages.productImage1,
         TImages.productImage23,
+        TImages.productImage1,
+        TImages.productImage44,
+        TImages.productImage50,
+        TImages.productImage28,
         TImages.productImage21,
-        TImages.productImage9
       ],
-      salePrice: 30,
+      salePrice: 190,
       sku: 'ABR4568',
       categoryId: '1',
       productAttributes: [
