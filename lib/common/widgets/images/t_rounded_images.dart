@@ -52,8 +52,10 @@ class TRoundedImage extends StatelessWidget {
                       TShimmerEffect(
                           width: width ?? double.infinity,
                           height: height ?? 158),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
-                )
+                  errorWidget: (context, url, error) {
+                    if (kDebugMode) print('error loading image $error');
+                    return const Icon(Icons.error);
+                  })
               : Image(
                   image: AssetImage(imgUrl),
                   fit: fit,

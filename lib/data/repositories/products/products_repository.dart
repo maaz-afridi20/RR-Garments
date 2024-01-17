@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
+import 'package:coding_with_t_ecommerce2/utils/local_storage/local_storage.dart';
 
 class ProductRepository extends GetxController {
   static ProductRepository get instance => Get.find();
@@ -80,7 +81,8 @@ class ProductRepository extends GetxController {
     try {
       // upload all the product along with their images
       final storage = Get.put(TFirebaseStorageService());
-      TFullScreenLoader.openLoadingDialog('Uploading', TImages.docerAnimation);
+      TFullScreenLoader.openLoadingDialog(
+          'Uploading Proudcts...', TImages.docerAnimation);
       // loop through all the products
 
       for (var product in products) {
@@ -132,6 +134,43 @@ class ProductRepository extends GetxController {
           }
         }
         await _db.collection('Products').doc(product.id).set(product.toJson());
+      }
+    } on FirebaseException catch (e) {
+      throw e.message!;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw e.message!;
+    } catch (e) {
+      throw e.toString();
+    } finally {
+      TFullScreenLoader.stopLoading();
+    }
+  }
+
+//!  UPLOAD DUMMY BRANDS...
+
+  Future<void> uploadDummyBanners(List<BannerModel> banners) async {
+    try {
+      final storage = Get.put(TFirebaseStorageService());
+      //! animation
+      TFullScreenLoader.openLoadingDialog(
+          'Uploading Banners....', TImages.docerAnimation);
+
+      //
+      for (var banner in banners) {
+        // get the image from local asset
+        final bannerImage =
+            await storage.getImageDataFromAssets(banner.imageUrl);
+
+        // upload the image and its url
+        final url = await storage.uploadImageData(
+            'Banners/Images', bannerImage, banner.imageUrl.toString());
+
+        banner.imageUrl = url;
+
+        await _db.collection('Banners').add(banner.toJson());
+        TFullScreenLoader.stopLoading();
       }
     } on FirebaseException catch (e) {
       throw e.message!;

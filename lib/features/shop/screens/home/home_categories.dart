@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/common/widgets/shimmers/category_shimmer.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class THomeCategories extends StatelessWidget {

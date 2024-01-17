@@ -8,6 +8,7 @@ class TPromoSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(BannerController());
+
     return Obx(() {
       if (controller.isLoading.value) {
         return const TShimmerEffect(width: double.infinity, height: 190);
@@ -19,13 +20,13 @@ class TPromoSlider extends StatelessWidget {
         return Column(
           children: [
             CarouselSlider(
-              items: controller.bannersList
-                  .map((banner) => TRoundedImage(
-                        imgUrl: banner.imageUrl,
-                        isNetworkImage: true,
-                        onPressed: () => Get.toNamed(banner.targetScreen),
-                      ))
-                  .toList(),
+              items: controller.bannersList.map((banner) {
+                return TRoundedImage(
+                  imgUrl: banner.imageUrl,
+                  isNetworkImage: true,
+                  onPressed: () => Get.toNamed(banner.targetScreen),
+                );
+              }).toList(),
               options: CarouselOptions(
                 viewportFraction: 1,
                 onPageChanged: (index, reason) =>
