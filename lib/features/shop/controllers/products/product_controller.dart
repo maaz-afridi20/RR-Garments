@@ -26,10 +26,20 @@ class ProductController extends GetxController {
       //! assign all that gained products to the featured products list above
       featuredProductsList.assignAll(products);
     } catch (e) {
-      print('in try block element are ${products.length}');
       TLoaders.errorSnackbar(title: 'OOPS!', message: e.toString());
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  Future<List<ProductModel>> fetchAllFeaturedProducts() async {
+    try {
+      //! fetch the products
+      final products = await productRepository.getFeaturedProduct();
+      return products;
+    } catch (e) {
+      TLoaders.errorSnackbar(title: 'OOPS!', message: e.toString());
+      return [];
     }
   }
 

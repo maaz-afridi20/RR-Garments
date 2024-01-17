@@ -22,32 +22,57 @@ class ProductRepository extends GetxController {
           snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
 
       // return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
-      print('in product repo ${products.length}');
+
       return products;
     } on FirebaseException catch (e) {
       throw TFirebaseException(e.code).message;
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      print('in product repo try catch ${products.length}');
-
       throw 'some error occurred $e';
     }
   }
 
-  //   GET ALL FEATURED PRODUCT
+  Future<List<ProductModel>> getAllFeaturedProduct() async {
+    try {
+      final snapshot = await _db
+          .collection('Products')
+          .where('IsFeatured', isEqualTo: true)
+          .get();
+      final products =
+          snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
 
-  //  GET FAVORITE PRODUCT BASED ON LIST OF PRODUCT IDS.
+      // return snapshot.docs.map((e) => ProductModel.fromSnapshot(e)).toList();
 
-  //  FETCH PRODUCT FOR A SPECIFIC CATEGORY
+      return products;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'some error occurred $e';
+    }
+  }
 
-  //  FETCH PRODUCT FOR A SPECIFIC BRAND
+  //!   GET PRODUCT BY QUERY
 
-  //  SEARCH PRODUCT
+  Future<List<ProductModel>> fetchProductsByQuery(Query query) async {
+    try {
+      final querySnapshot = await query.get();
+      final List<ProductModel> productList = querySnapshot.docs
+          .map((doc) => ProductModel.fromQuerySnapshot(doc))
+          .toList();
 
-//
-//
-//
+      return productList;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'something went wrong! please try again $e';
+    }
+  }
+
 //
   //!  UPLOAD DUMMY products DATA TO FIREBASE.
 

@@ -114,11 +114,11 @@ class TProductsCardVertical extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(left: TSizes.sm),
                           child: Text(
-                            product.price.toString(),
-                            style: Theme.of(context)
-                                .textTheme
-                                .labelMedium!
-                                .apply(decoration: TextDecoration.lineThrough),
+                            '\$${product.price}',
+                            style:
+                                Theme.of(context).textTheme.labelMedium!.apply(
+                                      decoration: TextDecoration.lineThrough,
+                                    ),
                           ),
                         ),
                       //! actual price

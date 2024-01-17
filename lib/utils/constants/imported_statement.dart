@@ -167,3 +167,5 @@ export 'package:coding_with_t_ecommerce2/common/widgets/shimmers/vertical_produc
 export 'package:coding_with_t_ecommerce2/features/shop/screens/product_details/product_details.dart';
 export 'package:coding_with_t_ecommerce2/common/widgets/chips/choice_chip.dart';
 export 'package:coding_with_t_ecommerce2/features/shop/controllers/products/variation_controller.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/controllers/products/all_product_controller.dart';
+export 'package:coding_with_t_ecommerce2/utils/helpers/cloud_helper_functions.dart';
