@@ -22,7 +22,7 @@ class TBrandShowCase extends StatelessWidget {
         children: [
           //! --------------Brand with product count--------------
 
-          const TBrandCard(showBorder: false),
+          TBrandCard(showBorder: false, brand: BrandModel.empty()),
           const SizedBox(height: TSizes.spaceBwItems),
           //! --------------Brand top 3 product images--------------
           Row(

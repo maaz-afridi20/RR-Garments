@@ -5,8 +5,10 @@ class TBrandCard extends StatelessWidget {
     super.key,
     this.showBorder = false,
     this.onTapp,
+    required this.brand,
   });
 
+  final BrandModel brand;
   final bool showBorder;
   final void Function()? onTapp;
 
@@ -25,8 +27,8 @@ class TBrandCard extends StatelessWidget {
             Flexible(
               child: TCircularImage(
                 dark: dark,
-                isNetworkImage: false,
-                image: TImages.clothIcon,
+                isNetworkImage: true,
+                image: brand.image,
                 backgroundColor: TColors.transparent,
                 overlayColor: dark ? TColors.white : TColors.black,
               ),
@@ -39,12 +41,12 @@ class TBrandCard extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const TBrandTitleWithVerifiedIcon(
-                    title: 'Nike',
+                  TBrandTitleWithVerifiedIcon(
+                    title: brand.name,
                     brandTextSizes: TextSizes.large,
                   ),
                   Text(
-                    '256 Products asdfasdfarsfafasaf',
+                    ' ${brand.productsCount ?? 0} products',
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.labelMedium,
                   ),

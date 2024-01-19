@@ -171,3 +171,6 @@ export 'package:coding_with_t_ecommerce2/features/shop/controllers/products/all_
 export 'package:coding_with_t_ecommerce2/utils/helpers/cloud_helper_functions.dart';
 export 'package:coding_with_t_ecommerce2/common/widgets/shimmers/category_shimmer.dart';
 export 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/upload_data_to_firebase.dart';
+export 'package:coding_with_t_ecommerce2/data/repositories/brands/brand_repository.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/controllers/brand_controller.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/brands/brand_product_screen.dart';

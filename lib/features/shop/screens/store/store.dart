@@ -1,3 +1,4 @@
+import 'package:coding_with_t_ecommerce2/common/widgets/shimmers/brand_shimmer.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class StoreScreen extends StatelessWidget {
@@ -6,6 +7,7 @@ class StoreScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final categories = CategoryController.instance.featuredCategories;
+    final brandController = Get.put(BrandController());
 
     // ! the default tab controller is for the Tabbar view
     // ! otherwise it will not work
@@ -56,13 +58,35 @@ class StoreScreen extends StatelessWidget {
 
                       // -----------------------------T Grid Layout-----------------------------------
 
-                      TGridLayout(
-                        itemCount: 4,
-                        mainAxisExtent: 80,
-                        itemBuilder: (_, index) {
-                          return const TBrandCard(showBorder: false);
-                        },
-                      )
+                      Obx(() {
+                        if (brandController.isLoading.value) {
+                          return const TBrandsShimmer();
+                        }
+
+                        if (brandController.featuredBrands.isEmpty) {
+                          return Center(
+                            child: Text(
+                              'No Data Found',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyMedium!
+                                  .apply(color: Colors.white),
+                            ),
+                          );
+                        }
+
+                        return TGridLayout(
+                          itemCount: brandController.featuredBrands.length,
+                          mainAxisExtent: 80,
+                          itemBuilder: (_, index) {
+                            final brand = brandController.featuredBrands[index];
+                            return TBrandCard(
+                              showBorder: false,
+                              brand: brand,
+                            );
+                          },
+                        );
+                      }),
                     ],
                   ),
                 ),

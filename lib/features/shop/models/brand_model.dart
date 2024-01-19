@@ -1,3 +1,5 @@
+import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
+
 class BrandModel {
   String id;
   String image;
@@ -41,5 +43,21 @@ class BrandModel {
         name: data['name'] ?? '',
         productsCount: data['productsCount'] ?? '',
         isFeatured: data['isFeatured']! ?? false);
+  }
+
+  factory BrandModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    if (document.data() != null) {
+      final data = document.data();
+
+      return BrandModel(
+          id: document.id,
+          name: data!['name'] ?? '',
+          image: data['image'] ?? '',
+          productsCount: data['productsCount'] ?? '',
+          isFeatured: data['isFeatured'] ?? false);
+    } else {
+      return BrandModel.empty();
+    }
   }
 }

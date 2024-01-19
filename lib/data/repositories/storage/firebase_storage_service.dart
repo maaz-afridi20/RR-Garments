@@ -23,7 +23,9 @@ class TFirebaseStorageService extends GetxController {
   Future<String> uploadImageData(
       String path, Uint8List image, String name) async {
     try {
-      final ref = _firebaseStorage.ref(path).child(name);
+      final storagePath = '$path/$name';
+      // final ref = _firebaseStorage.ref(path).child(name);
+      final ref = _firebaseStorage.ref(storagePath);
       await ref.putData(image);
       final url = await ref.getDownloadURL();
       return url;
