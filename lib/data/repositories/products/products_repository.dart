@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
-import 'package:coding_with_t_ecommerce2/utils/local_storage/local_storage.dart';
 
 class ProductRepository extends GetxController {
   static ProductRepository get instance => Get.find();
@@ -171,6 +170,42 @@ class ProductRepository extends GetxController {
 
         await _db.collection('Banners').add(banner.toJson());
         TFullScreenLoader.stopLoading();
+      }
+    } on FirebaseException catch (e) {
+      throw e.message!;
+    } on SocketException catch (e) {
+      throw e.message;
+    } on PlatformException catch (e) {
+      throw e.message!;
+    } catch (e) {
+      throw e.toString();
+    } finally {
+      TFullScreenLoader.stopLoading();
+    }
+  }
+
+//! uploading brands.
+  Future<void> uploadDummyBrands(List<BrandModel> brands) async {
+    try {
+      final storage = Get.put(TFirebaseStorageService());
+
+      //! starat animation
+      TFullScreenLoader.openLoadingDialog(
+          'Uploading Brands...', TImages.docerAnimation);
+      //!
+
+      for (var brand in brands) {
+        // get the brands from local assets.
+        final brandImage = await storage.getImageDataFromAssets(brand.image);
+
+        // upload the brands images.
+
+        final url = await storage.uploadImageData(
+            'Brands/Images', brandImage, brand.image);
+
+        brand.image = url;
+
+        await _db.collection('Brands').doc(brand.id).set(brand.toJson());
       }
     } on FirebaseException catch (e) {
       throw e.message!;

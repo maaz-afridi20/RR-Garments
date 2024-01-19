@@ -1,4 +1,3 @@
-import 'package:coding_with_t_ecommerce2/features/personalization/screens/profile/upload_data_to_firebase.dart';
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -7,6 +6,7 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bool dark = THelperFunction.isDarkMode(context);
+    final controller = UserController.instance;
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),

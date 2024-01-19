@@ -35,11 +35,16 @@ class UploadDummyDataToFirebaseScreen extends StatelessWidget {
                   // FirebaseStorageController().uploadImagesAsAWhole(),
                   child: const Icon(Icons.drive_folder_upload)),
             ),
-            const TSettingMenuTile(
-                icon: Iconsax.shop,
-                title: 'Upload Brands',
-                subtitle: 'Upload all of your brands here',
-                trailing: Icon(Icons.drive_folder_upload)),
+            TSettingMenuTile(
+              icon: Iconsax.shop,
+              title: 'Upload Brands',
+              subtitle: 'Upload all of your brands here',
+              trailing: GestureDetector(
+                onTap: () =>
+                    productRepoController.uploadDummyBrands(TDummyData.brands),
+                child: const Icon(Icons.drive_folder_upload),
+              ),
+            ),
             TSettingMenuTile(
               icon: Iconsax.cloud_add,
               title: 'Upload Banners',

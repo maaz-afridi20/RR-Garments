@@ -19,6 +19,7 @@ class TUserProfileTile extends StatelessWidget {
         leading: TCircularImage(
           dark: dark,
           image: image,
+          isNetworkImage: true,
           width: 50,
           height: 50,
           padding: 0,
