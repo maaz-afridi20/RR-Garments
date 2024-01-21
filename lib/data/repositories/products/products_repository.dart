@@ -29,7 +29,7 @@ class ProductRepository extends GetxController {
     } on PlatformException catch (e) {
       throw TPlatformException(e.code).message;
     } catch (e) {
-      throw 'some error occurred $e';
+      throw 'some error occurred ataeatthaetaet $e';
     }
   }
 
@@ -70,6 +70,35 @@ class ProductRepository extends GetxController {
       throw TPlatformException(e.code).message;
     } catch (e) {
       throw 'something went wrong! please try again $e';
+    }
+  }
+
+  //! getting brands from products
+
+  Future<List<ProductModel>> getProductsForBrands(
+      {required String brandId, int limit = -1}) async {
+    try {
+      final querySnapshot = limit == -1
+          ? await _db
+              .collection('Products')
+              .where('Brand.id', isEqualTo: brandId)
+              .get()
+          : await _db
+              .collection('Products')
+              .where('Brand.id', isEqualTo: brandId)
+              .limit(limit)
+              .get();
+
+      final products = querySnapshot.docs
+          .map((doc) => ProductModel.fromSnapshot(doc))
+          .toList();
+      return products;
+    } on FirebaseException catch (e) {
+      throw TFirebaseException(e.code).message;
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
+    } catch (e) {
+      throw 'Something went wrong! Please try again';
     }
   }
 

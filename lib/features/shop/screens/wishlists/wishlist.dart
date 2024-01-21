@@ -5,7 +5,7 @@ class FavouriteScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final products = ProductController.instance.featuredProductsList;
+    final controller = Get.put(ProductController());
     return Scaffold(
       appBar: TAppbar(
         title:
@@ -20,11 +20,24 @@ class FavouriteScreen extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
-              TGridLayout(
-                itemCount: products.length,
-                itemBuilder: (index, context) =>
-                    TProductsCardVertical(product: ProductModel.empty()),
-              ),
+              Obx(() {
+                if (controller.isLoading.value) {
+                  return const TVerticalProductShimmer();
+                }
+
+                if (controller.featuredProductsList.isEmpty) {
+                  return Center(
+                      child: Text('No Data Found',
+                          style: Theme.of(context).textTheme.bodyMedium));
+                }
+
+                return TGridLayout(
+                  itemCount: controller.featuredProductsList.length,
+                  itemBuilder: (_, index) => TProductsCardVertical(
+                    product: controller.featuredProductsList[index],
+                  ),
+                );
+              })
             ],
           ),
         ),

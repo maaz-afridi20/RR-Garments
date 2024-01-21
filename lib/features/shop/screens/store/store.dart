@@ -50,12 +50,15 @@ class StoreScreen extends StatelessWidget {
                       const SizedBox(height: TSizes.spaceBwSections),
 
                       // -----------------------------Feature Brands-----------------------------------
+                      //
                       TSectionHeading(
-                        title: 'Feature Brands',
-                        onPressed: () => Get.to(() => const AllBrandScreen()),
-                      ),
+                          title: 'Feature Brands',
+                          onPressed: () => Get.to(
+                                () => const AllBrandScreen(),
+                              )),
                       const SizedBox(height: TSizes.spaceBwItems / 1.5),
 
+                      //!  Brands Grid
                       // -----------------------------T Grid Layout-----------------------------------
 
                       Obx(() {
@@ -80,9 +83,14 @@ class StoreScreen extends StatelessWidget {
                           mainAxisExtent: 80,
                           itemBuilder: (_, index) {
                             final brand = brandController.featuredBrands[index];
-                            return TBrandCard(
-                              showBorder: false,
-                              brand: brand,
+                            return GestureDetector(
+                              onTap: () => Get.to(
+                                () => BrandProductScreen(brand: brand),
+                              ),
+                              child: TBrandCard(
+                                showBorder: true,
+                                brand: brand,
+                              ),
                             );
                           },
                         );
@@ -94,7 +102,11 @@ class StoreScreen extends StatelessWidget {
 
                 bottom: TTabbar(
                   tabs: categories
-                      .map((category) => Tab(child: Text(category.name)))
+                      .map(
+                        (category) => Tab(
+                          child: Text(category.name),
+                        ),
+                      )
                       .toList(),
                 ),
               ),
@@ -102,7 +114,9 @@ class StoreScreen extends StatelessWidget {
           },
           body: TabBarView(
             children: categories
-                .map((category) => TCategotyTab(category: category))
+                .map(
+                  (category) => TCategotyTab(category: category),
+                )
                 .toList(),
           ),
         ),

@@ -8,6 +8,7 @@ class TCategotyTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunction.isDarkMode(context);
+    final controller = ProductController.instance;
 
     return ListView(
       physics: const NeverScrollableScrollPhysics(),
@@ -35,9 +36,12 @@ class TCategotyTab extends StatelessWidget {
               //! --------------Grid layout things---------------
 
               TGridLayout(
-                  itemCount: 4,
-                  itemBuilder: (context, index) =>
-                      TProductsCardVertical(product: ProductModel.empty())),
+                  itemCount: controller.featuredProductsList.length,
+                  itemBuilder: (context, index) {
+                    return TProductsCardVertical(
+                      product: controller.featuredProductsList[index],
+                    );
+                  }),
               const SizedBox(height: TSizes.spaceBwSections),
             ],
           ),
