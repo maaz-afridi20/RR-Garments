@@ -7,8 +7,7 @@ class TCategotyTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final dark = THelperFunction.isDarkMode(context);
-    final controller = ProductController.instance;
+    final controller = CategoryController.instance;
 
     return ListView(
       physics: const NeverScrollableScrollPhysics(),
@@ -18,31 +17,52 @@ class TCategotyTab extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
+              //! CATEGORIES....
+              CategoryBrands(category: category),
               //! -------------Brands----------------
 
-              TBrandShowCase(
-                dark: dark,
-                images: const [
-                  TImages.productImage1,
-                  TImages.productImage2,
-                  TImages.productImage3,
-                ],
-              ),
-              const SizedBox(height: TSizes.spaceBwItems),
+              // TBrandShowCase(dark: dark, images: const [
+              //   TImages.productImage1,
+              //   TImages.productImage2,
+              //   TImages.productImage3
+              // ]),
+              // const SizedBox(height: TSizes.spaceBwItems),
               //! --------------Products---------------
 
-              TSectionHeading(title: 'Your might like', onPressed: () {}),
-              const SizedBox(height: TSizes.spaceBwItems),
-              //! --------------Grid layout things---------------
+              FutureBuilder(
+                future: controller.getCategoryProducts(categoryId: category.id),
+                builder: (context, snapshot) {
+                  final response =
+                      TCloudHelperFunctions.checkMultipleRecordState(
+                          snapshot: snapshot,
+                          loader: const TVerticalProductShimmer());
+                  if (response != null) return response;
 
-              TGridLayout(
-                  itemCount: controller.featuredProductsList.length,
-                  itemBuilder: (context, index) {
-                    return TProductsCardVertical(
-                      product: controller.featuredProductsList[index],
-                    );
-                  }),
-              const SizedBox(height: TSizes.spaceBwSections),
+                  final products = snapshot.data!;
+                  return Column(
+                    children: [
+                      TSectionHeading(
+                        title: 'Your might like',
+                        onPressed: () => Get.to(
+                          () => AllProducts(
+                            title: category.name,
+                            futureMethod: controller.getCategoryProducts(
+                                categoryId: category.id, limit: -1),
+                          ),
+                        ),
+                      ),
+                      //! --------------Grid layout things---------------
+                      TGridLayout(
+                          itemCount: products.length,
+                          itemBuilder: (context, index) {
+                            return TProductsCardVertical(
+                              product: products[index],
+                            );
+                          }),
+                    ],
+                  );
+                },
+              )
             ],
           ),
         ),

@@ -20,7 +20,7 @@ class BrandProductScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBwSections),
 
               FutureBuilder(
-                  future: controller.getBrandProducts(brand.id),
+                  future: controller.getBrandProducts(brandId: brand.id),
                   builder: (context, snapshot) {
                     //! loader
                     const loader = TVerticalProductShimmer();

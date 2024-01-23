@@ -61,4 +61,11 @@ class CategoryController extends GetxController {
 //! load the selected category data
 
 //! Get the category and subcategory
+
+  Future<List<ProductModel>> getCategoryProducts(
+      {required String categoryId, int limit = 4}) async {
+    final products = await ProductRepository.instance
+        .getProductsForCategory(categoryId: categoryId, limit: limit);
+    return products;
+  }
 }

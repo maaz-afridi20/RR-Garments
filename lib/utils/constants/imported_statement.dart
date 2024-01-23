@@ -174,3 +174,6 @@ export 'package:coding_with_t_ecommerce2/features/personalization/screens/profil
 export 'package:coding_with_t_ecommerce2/data/repositories/brands/brand_repository.dart';
 export 'package:coding_with_t_ecommerce2/features/shop/controllers/brand_controller.dart';
 export 'package:coding_with_t_ecommerce2/features/shop/screens/brands/brand_product_screen.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/screens/store/widgets/category_brand.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/shimmers/boxes_shimmer.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/shimmers/list_shimmer.dart';
