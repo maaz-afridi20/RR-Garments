@@ -62,7 +62,7 @@ class TLoaders {
               borderRadius: BorderRadius.circular(30),
               color: THelperFunction.isDarkMode(Get.context!)
                   ? TColors.darkerGrey.withOpacity(0.9)
-                  : TColors.darkGrey.withOpacity(0.9)),
+                  : TColors.white),
           child:
               Text(message, style: Theme.of(Get.context!).textTheme.labelLarge),
         ),

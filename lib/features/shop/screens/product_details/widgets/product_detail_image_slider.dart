@@ -83,10 +83,10 @@ class TProductImageSlider extends StatelessWidget {
 
             //! -----------------------Appbar Icons-----------------------
 
-            const TAppbar(
+            TAppbar(
               showBackArrow: true,
               actions: [
-                TCirculorIcon(icon: Iconsax.heart5, color: Colors.red),
+                TFavouriteIcon(productId: product.id),
               ],
             ),
           ],

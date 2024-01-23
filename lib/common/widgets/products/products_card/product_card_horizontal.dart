@@ -51,15 +51,7 @@ class TProductsCardHorizontal extends StatelessWidget {
                 // ---------------------------Favourite Icon Button-------------------------------------
 
                 const Positioned(
-                  top: 0,
-                  right: 0,
-                  child: TCirculorIcon(
-                    icon: Iconsax.heart5,
-                    color: Colors.red,
-                    width: 40,
-                    height: 40,
-                  ),
-                ),
+                    top: 0, right: 0, child: TFavouriteIcon(productId: '')),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:coding_with_t_ecommerce2/utils/constants/imported_statement.dart';
+import 'package:coding_with_t_ecommerce2/utils/local_storage/local_storage.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -24,6 +25,9 @@ class AuthenticationRepository extends GetxController {
     final user = _auth.currentUser;
     if (user != null) {
       if (user.emailVerified) {
+        //! initilize the user specified bucket
+        await TLocalStorage.init(user.uid);
+
         Get.offAll(() => const NavigationMenu());
       } else {
         Get.offAll(() => VerifyEmail(email: _auth.currentUser?.email));

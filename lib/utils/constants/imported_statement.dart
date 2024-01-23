@@ -177,3 +177,6 @@ export 'package:coding_with_t_ecommerce2/features/shop/screens/brands/brand_prod
 export 'package:coding_with_t_ecommerce2/features/shop/screens/store/widgets/category_brand.dart';
 export 'package:coding_with_t_ecommerce2/common/widgets/shimmers/boxes_shimmer.dart';
 export 'package:coding_with_t_ecommerce2/common/widgets/shimmers/list_shimmer.dart';
+export 'package:coding_with_t_ecommerce2/common/widgets/products/favourite_icon/favourite_icon.dart';
+export 'package:coding_with_t_ecommerce2/features/shop/controllers/products/favourites_controller.dart';
+export 'package:coding_with_t_ecommerce2/utils/local_storage/local_storage.dart';

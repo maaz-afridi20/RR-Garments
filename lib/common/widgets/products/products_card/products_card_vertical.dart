@@ -9,6 +9,8 @@ class TProductsCardVertical extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = THelperFunction.isDarkMode(context);
     final controller = ProductController.instance;
+    final salePercentage =
+        controller.calculateSalePercentage(product.price, product.salePrice);
     // container with padding and color edges radius etc,
     return GestureDetector(
       onTap: () => Get.to(() => ProductDetalsScreen(product: product)),
@@ -44,34 +46,32 @@ class TProductsCardVertical extends StatelessWidget {
                   //
                   // --------------------Sale percentage tag------------
 
-                  Positioned(
-                    top: 12,
-                    child: TRoundedContainer(
-                      radius: TSizes.sm,
-                      backgroundColor:
-                          TColors.basicSecondaryColor.withOpacity(0.8),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: TSizes.sm, vertical: TSizes.xs),
-                      child: Text(
-                        '${controller.calculateSalePercentage(product.price, product.salePrice)}%',
-                        style: Theme.of(context)
-                            .textTheme
-                            .labelLarge!
-                            .apply(color: TColors.backgroundDarkColor),
+                  //!sale tag.
+                  if (salePercentage != null)
+                    Positioned(
+                      top: 12,
+                      child: TRoundedContainer(
+                        radius: TSizes.sm,
+                        backgroundColor:
+                            TColors.basicSecondaryColor.withOpacity(0.8),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: TSizes.sm, vertical: TSizes.xs),
+                        child: Text(
+                          '${controller.calculateSalePercentage(product.price, product.salePrice)}%',
+                          style: Theme.of(context)
+                              .textTheme
+                              .labelLarge!
+                              .apply(color: TColors.backgroundDarkColor),
+                        ),
                       ),
                     ),
-                  ),
 
                   // ---------------------------Favourite Icon Button-------------------------------------
 
                   Positioned(
                     top: 0,
                     right: 0,
-                    child: TCirculorIcon(
-                      backgroundColor: dark ? TColors.softGrey : TColors.white,
-                      icon: Iconsax.heart5,
-                      color: Colors.red,
-                    ),
+                    child: TFavouriteIcon(productId: product.id),
                   ),
                 ],
               ),
